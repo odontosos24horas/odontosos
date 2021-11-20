@@ -69,35 +69,25 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Home'
+    label: 'QUEM SOMOS',
+    href: '#'
   },
-  // {
-  //   label: 'Quem somos',
-  //   href: '#'
-  // },
-  // {
-  //   label: 'Portfólio',
-  //   children: [
-  //     {
-  //       label: 'Tattoo Pop',
-  //       subLabel: 'Find your dream design job',
-  //       href: '#'
-  //     },
-  //     {
-  //       label: 'Optar',
-  //       subLabel: 'An exclusive list for contract work',
-  //       href: '#'
-  //     }
-  //   ]
-  // },
   {
-    label: 'Orçamento',
-    href: nextSocialNetwork.whatsapp.url
+    label: 'COMO CHEGAR',
+    href: '#'
+  },
+  {
+    label: 'CONVÊNIOS',
+    href: '#'
+  },
+  {
+    label: 'TRABALHE CONOSCO',
+    href: '#'
   }
 ]
 
 const DesktopNav = () => {
-  const linkColor = 'white'
+  const linkColor = 'next-dark'
   const linkHoverColor = 'next-primary'
   const popoverContentBgColor = 'gray.800'
 
@@ -212,11 +202,7 @@ const NextHeader = () => {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
-    <Box
-      borderBottom={1}
-      borderStyle={'solid'}
-      borderColor={'gray.700'}
-    >
+    <Box>
       <Container maxW="container.lg">
         <Flex
           color={'gray.600'}
@@ -235,7 +221,7 @@ const NextHeader = () => {
             />
           </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center' }}>
-            <Image src="/images/logos/logo_nextime.svg" alt="NeXTIME Logo" width={146} height={45} />
+            <Image src="/images/logos/logo_nextime.svg" alt="NeXTIME Logo" width={261} height={48} />
           </Flex>
           <Flex display={{ base: 'none', md: 'flex' }}>
             <DesktopNav />
