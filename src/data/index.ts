@@ -19,14 +19,13 @@ export const nextHeroItem = {
 
 export const nextCallToActionItems = [
   {
-    title: 'Crie seu próprio app e multiplique suas vendas',
-    text: 'Na NeXTIME, temos a solução completa para você se conectar com quem mais importa: seus clientes. Faça todo mundo levar sua empresa na palma da mão e ter acesso ao melhor que você oferece com poucos cliques.',
-    image: '/images/home/tattoo_pop.png',
-    textButton: 'Quero meu próprio app',
-    url: `${nextSocialNetwork.whatsapp.url}`,
-    width: 602,
-    height: 644,
-    directionMd: 'row-reverse'
+    title: 'QUEM SOMOS',
+    text: 'Somos um grupo de profissionais da odontologia altamente capacitados com o intuito de oferecer a você e sua família um atendimento de urgência de alta qualidade e segurança. Localizados num dos pontos mais nobres e acessíveis de Belo Horizonte. Estamos abertos 24 horas te esperando quando mais você precisar.',
+    image: '/images/home/tattoo_pop.jpeg',
+    textButton: 'VEJA COMO CHEGAR',
+    url: '#comochegar',
+    width: 720,
+    height: 493
   },
   {
     title: 'Tenha um site inovador e veja sua empresa decolar',
@@ -35,16 +34,7 @@ export const nextCallToActionItems = [
     url: `${nextSocialNetwork.whatsapp.url}`,
     width: 595,
     height: 528,
-    image: '/images/home/optar.png'
-  },
-  {
-    title: 'Faça sua empresa ser vista e conquiste fãs para sua marca',
-    text: 'Tenha a ajuda dos experts NeXTIME para criar campanhas completas para sua marca. Esteja presente em todas as plataformas e redes sociais para ganhar uma legião de clientes.',
-    image: '/images/home/instagram.png',
-    url: `${nextSocialNetwork.whatsapp.url}`,
-    width: 504,
-    height: 543,
-    textButton: 'Quero que minha empresa seja vista',
+    image: '/images/home/optar.png',
     directionMd: 'row-reverse'
   }
 ] as unknown as Array<NextCallToActionProps>

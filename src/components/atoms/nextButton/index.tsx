@@ -25,6 +25,7 @@ const NextButton = ({
         borderColor="primary"
         variant={variant}
         height="45px"
+        borderRadius="50px"
       >
         { children }
       </Button>

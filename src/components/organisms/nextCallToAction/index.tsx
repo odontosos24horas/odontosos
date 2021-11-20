@@ -1,6 +1,5 @@
 import React from 'react'
 import {
-  Container,
   Flex,
   Stack,
   Text
@@ -23,7 +22,6 @@ export interface NextCallToActionProps {
 }
 
 const NextCallToAction = ({
-  bg,
   title,
   text,
   image,
@@ -35,35 +33,33 @@ const NextCallToAction = ({
   directionBase = 'column'
 }: NextCallToActionProps) => {
   return (
-    <Container bg={bg} maxW="container.xl" pb={12} >
-      <Stack align={'center'} direction={{ base: directionBase, md: directionMd }}>
-        <Flex flex={1} align={'center'} justify={'center'}>
-          <Stack spacing={6} w={'full'} maxW={'lg'}>
-            <Text lineHeight={1.33} fontWeight={600} fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
-              {title}
-            </Text>
-            <Text fontSize={{ base: 'md', lg: 'lg' }} color={'white'}>
-              {text}
-            </Text>
-            <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
-              <Link href={`${url}%0A${textButton}`}>
-                <a target="_blank" rel="noreferrer">
-                  <NextButton variant="outline">{textButton}</NextButton>
-                </a>
-              </Link>
-            </Stack>
+    <Stack align={'center'} direction={{ base: directionBase, md: directionMd }}>
+      <Flex flex={1} align={'center'} justify={'center'}>
+        <Stack spacing={6} w={'full'} maxW={'lg'}>
+          <Text color={'next-primary'} fontWeight={700} fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
+            {title}
+          </Text>
+          <Text fontSize={{ base: 'md', lg: 'lg' }} color={'next-gray'}>
+            {text}
+          </Text>
+          <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
+            <Link href={`${url}%0A${textButton}`}>
+              <a target="_blank" rel="noreferrer">
+                <NextButton>{textButton}</NextButton>
+              </a>
+            </Link>
           </Stack>
-        </Flex>
-        <Flex maxH={'30rem'} flex={1}>
-          <Image
-            alt={title}
-            src={image}
-            width={width}
-            height={height}
-          />
-        </Flex>
-      </Stack>
-    </Container>
+        </Stack>
+      </Flex>
+      <Flex maxH={'30rem'} flex={1}>
+        <Image
+          alt={title}
+          src={image}
+          width={width}
+          height={height}
+        />
+      </Flex>
+    </Stack>
   )
 }
 

@@ -198,7 +198,7 @@ const NextHeader = () => {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
-    <Box py={4}>
+    <Box py={{ base: 0, md: 4 }}>
       <Container maxW="container.xl">
         <Flex
           color={'gray.600'}
