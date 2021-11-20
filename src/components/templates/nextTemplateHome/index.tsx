@@ -3,6 +3,7 @@ import { NextFeatureProps } from '../../molecules/nextFeature'
 import NextCallToAction, { NextCallToActionProps } from '../../organisms/nextCallToAction'
 import NextFeatures from '../../organisms/nextFeatures'
 import NextHero, { NextHeroProps } from '../../organisms/nextHero'
+import NextContactUs from '../../organisms/nextContactUs'
 import NextLayout from '../nextLayout'
 
 export type NextTemplateHomeProps = {
@@ -59,6 +60,7 @@ const NextTemplateHome = ({
       {/* <Box mb={20}>
         <NextTeam items={nextTeamItems}/>
       </Box> */}
+      <NextContactUs />
     </NextLayout>
   )
 }
