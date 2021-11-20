@@ -25,15 +25,18 @@ const NextLayout = ({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <NextHeader />
+      <header>
+        <NextHeader />
+      </header>
 
       <main>
-        <Container maxW="container.xl">
-          {children}
-        </Container>
+        {children}
       </main>
 
-      <NextFooter />
+      <footer>
+        <NextFooter />
+      </footer>
+
       <Box
         position="fixed"
         width="60px"

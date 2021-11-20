@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import NextJSLink from 'next/link'
 import {
   Box,
   Flex,
@@ -23,8 +22,6 @@ import {
   ChevronDownIcon,
   ChevronRightIcon
 } from '@chakra-ui/icons'
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
-import { nextSocialNetwork } from '../../../data'
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
@@ -70,19 +67,19 @@ interface NavItem {
 const NAV_ITEMS: Array<NavItem> = [
   {
     label: 'QUEM SOMOS',
-    href: '#'
+    href: '#quemsomos'
   },
   {
     label: 'COMO CHEGAR',
-    href: '#'
+    href: '#comochegar'
   },
   {
     label: 'CONVÊNIOS',
-    href: '#'
+    href: '#convenios'
   },
   {
     label: 'TRABALHE CONOSCO',
-    href: '#'
+    href: '#trabalheconosco'
   }
 ]
 
@@ -98,9 +95,8 @@ const DesktopNav = () => {
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
               <Link
-                p={2}
                 href={navItem.href ?? '#'}
-                fontSize={'sm'}
+                fontSize={'xs'}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{
@@ -202,8 +198,8 @@ const NextHeader = () => {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
-    <Box>
-      <Container maxW="container.lg">
+    <Box py={4}>
+      <Container maxW="container.xl">
         <Flex
           color={'gray.600'}
           minH={'70px'}
