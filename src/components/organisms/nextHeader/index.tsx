@@ -15,7 +15,7 @@ import {
   PopoverContent,
   useDisclosure,
   Container,
-  HStack
+  Heading
 } from '@chakra-ui/react'
 import {
   HamburgerIcon,
@@ -227,29 +227,16 @@ const NextHeader = () => {
             <DesktopNav />
           </Flex>
 
-          <Stack
-            flex={{ base: 1 }}
-            justify={'flex-end'}
-            direction={'row'}
-            spacing={6}>
-            <HStack spacing={{ base: 3, md: 6 }}>
-              <NextJSLink href={'https://www.instagram.com/nextimetec/'}>
-                <a target="_blank" rel="noreferrer">
-                  <Icon color="next-gray" _hover={{ color: 'next-primary' }} as={FaInstagram} w={6} h={6}/>
-                </a>
-              </NextJSLink>
-              <NextJSLink href={'https://www.facebook.com/nextimetecnologia'}>
-                <a target="_blank" rel="noreferrer">
-                  <Icon color="next-gray" _hover={{ color: 'next-primary' }} as={FaFacebookF} w={6} h={6}/>
-                </a>
-              </NextJSLink>
-              <NextJSLink href={'https://www.linkedin.com/company/nextimetec/'}>
-                <a target="_blank" rel="noreferrer">
-                  <Icon color="next-gray" _hover={{ color: 'next-primary' }} as={FaLinkedinIn} w={6} h={6}/>
-                </a>
-              </NextJSLink>
-            </HStack>
-          </Stack>
+          <Flex flex={{ base: 1 }}justify={{ base: 'center' }}>
+            <Box display={{ base: 'none', md: 'block' }}>
+              <Heading color="next-primary" size="lg">
+                (31) 3586-0900
+              </Heading>
+              <Text color="next-primary" fontSize="sm">
+                R. Cláudio Manoel, 223 - Funcionários
+              </Text>
+            </Box>
+          </Flex>
         </Flex>
 
         <Collapse in={isOpen} animateOpacity>
