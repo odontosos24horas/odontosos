@@ -1,19 +1,11 @@
 import { NextCallToActionProps } from '../components/organisms/nextCallToAction'
 import { NextFeatureProps } from '../components/molecules/nextFeature'
-import { getRandom } from '../utils/getRandom'
 
-export const contacts = [
-  '553192711521',
-  '553189217467',
-  '447576885930',
-  '553799226492'
-]
-
-const number = getRandom(contacts)
+const number = '5531995830442'
 
 export const nextSocialNetwork = {
   whatsapp: {
-    url: `https://api.whatsapp.com/send?phone=${number}&text=Ol%C3%A1,%20NeXTIME!%0AGostaria%20de%20solicitar%20um%20orçamento.`
+    url: `https://api.whatsapp.com/send?phone=${number}&text=Ol%C3%A1,%20Odonto%20SOS!`
   }
 }
 
