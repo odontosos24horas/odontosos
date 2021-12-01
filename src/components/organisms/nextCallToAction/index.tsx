@@ -9,7 +9,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 export interface NextCallToActionProps {
-  bg?: string;
+  background?: boolean;
   title: string;
   text: string;
   textButton?: string;
@@ -22,6 +22,7 @@ export interface NextCallToActionProps {
 }
 
 const NextCallToAction = ({
+  background,
   title,
   text,
   image,
@@ -33,10 +34,14 @@ const NextCallToAction = ({
   directionBase = 'column'
 }: NextCallToActionProps) => {
   return (
-    <Stack align={'center'} direction={{ base: directionBase, md: directionMd }}>
+    <Stack bg={background ? 'next-primary' : ''} align={'center'} direction={{ base: directionBase, md: directionMd }}>
       <Flex flex={1} align={'center'} justify={'center'}>
         <Stack spacing={6} w={'full'} maxW={'lg'}>
-          <Text color={'next-primary'} fontWeight={700} fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
+          <Text
+            color={background ? 'white' : 'next-primary'}
+            fontWeight={700}
+            fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+          >
             {title}
           </Text>
           <Text fontSize={{ base: 'md', lg: 'lg' }} color={'next-gray'}>

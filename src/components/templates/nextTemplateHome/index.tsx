@@ -6,6 +6,12 @@ import NextHero from '../../organisms/nextHero'
 import NextContactUs from '../../organisms/nextContactUs'
 import NextLayout from '../nextLayout'
 
+import {
+  Box,
+  Container,
+  Text
+} from '@chakra-ui/react'
+
 export type NextTemplateHomeProps = {
   nextFeatureItems: Array<NextFeatureProps>
   nextCallToActionItems: Array<NextCallToActionProps>
@@ -30,11 +36,19 @@ const NextTemplateHome = ({
         height={nextCallToActionItems[0].height}
         url={nextCallToActionItems[0].url}
       />
-      <NextFeatures
-        items={nextTechnologyItems}
-        numberGrid={6}
-      />
+      <Box pt={24}>
+        <Container maxW='container.xl' px={14} pb={6}>
+          <Text color={'next-primary'} fontWeight={700} fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
+            CONVÊNIOS
+          </Text>
+        </Container>
+        <NextFeatures
+          items={nextTechnologyItems}
+          numberGrid={5}
+        />
+      </Box>
       <NextCallToAction
+        background
         title={nextCallToActionItems[1].title}
         text={nextCallToActionItems[1].text}
         image={nextCallToActionItems[1].image}
@@ -43,6 +57,16 @@ const NextTemplateHome = ({
         width={nextCallToActionItems[1].width}
         height={nextCallToActionItems[1].height}
         url={nextCallToActionItems[1].url}
+      />
+      <NextCallToAction
+        title={nextCallToActionItems[2].title}
+        text={nextCallToActionItems[2].text}
+        image={nextCallToActionItems[2].image}
+        textButton={nextCallToActionItems[2].textButton}
+        directionMd={nextCallToActionItems[2].directionMd}
+        width={nextCallToActionItems[2].width}
+        height={nextCallToActionItems[2].height}
+        url={nextCallToActionItems[2].url}
       />
       <NextContactUs />
     </NextLayout>

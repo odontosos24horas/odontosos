@@ -28,14 +28,22 @@ export const nextCallToActionItems = [
     height: 493
   },
   {
-    title: 'Tenha um site inovador e veja sua empresa decolar',
-    text: 'Conte com nossos especialistas NeXTIME para criar tudo utilizando as ferramentas mais modernas. Desenvolvemos páginas otimizadas que carregam em poucas frações de segundo e não te fazem perder clientes.',
-    textButton: 'Quero meu site mais moderno',
+    title: 'TRABALHE CONOSCO',
+    textButton: 'Enviar',
     url: `${nextSocialNetwork.whatsapp.url}`,
     width: 595,
     height: 528,
-    image: '/images/home/optar.png',
+    image: '/images/home/image_left.png',
     directionMd: 'row-reverse'
+  },
+  {
+    title: 'VEJA COMO CHEGAR',
+    text: 'Estamos localizados na rua Cláudio Manoel, 223 - Funcionários - Belo Horizonte - Minas Gerais.  Confira nossa localização no mapa e calcule sua rota.',
+    textButton: '(31) 3586-0900',
+    url: `${nextSocialNetwork.whatsapp.url}`,
+    width: 595,
+    height: 528,
+    image: '/images/home/image_left.png'
   }
 ] as unknown as Array<NextCallToActionProps>
 
@@ -74,59 +82,79 @@ export const nextFeatureItems = [
 
 export const nextTechnologyItems = [
   {
-    image: '/images/logos/flutter.svg',
-    width: 51,
-    height: 64
+    image: '/images/logos/logo_amil.png',
+    width: 138,
+    height: 99
   },
   {
-    image: '/images/logos/nextjs.svg',
-    width: 64,
-    height: 64
+    image: '/images/logos/logo_belo_dente.png',
+    width: 122,
+    height: 147
   },
   {
-    image: '/images/logos/vercel.svg',
-    width: 64,
-    height: 64
+    image: '/images/logos/logo_bradesco.png',
+    width: 168,
+    height: 105
   },
   {
-    image: '/images/logos/nodejs.svg',
-    width: 64,
-    height: 64
+    image: '/images/logos/logo_copass.png',
+    width: 202,
+    height: 234
   },
   {
-    image: '/images/logos/nestjs.svg',
-    width: 64,
-    height: 64
+    image: '/images/logos/logo_geap.png',
+    width: 233,
+    height: 123
   },
   {
-    image: '/images/logos/firebase.svg',
-    width: 64,
-    height: 64
+    image: '/images/logos/logo_inpao.png',
+    width: 309,
+    height: 130
   },
   {
-    image: '/images/logos/amp.svg',
-    width: 64,
-    height: 64
+    image: '/images/logos/logo_ipsm.png',
+    width: 194,
+    height: 203
   },
   {
-    image: '/images/logos/bootstrap.svg',
-    width: 64,
-    height: 64
+    image: '/images/logos/logo_metlife.png',
+    width: 371,
+    height: 110
   },
   {
-    image: '/images/logos/tailwind.svg',
-    width: 64,
-    height: 64
+    image: '/images/logos/logo_odontoprev.png',
+    width: 294,
+    height: 158
   },
   {
-    image: '/images/logos/chakra.svg',
-    width: 64,
-    height: 64
+    image: '/images/logos/logo_plan_assiste.png',
+    width: 368,
+    height: 117
   },
   {
-    image: '/images/logos/stripe.svg',
-    width: 64,
-    height: 64
+    image: '/images/logos/logo_porto_saude.png',
+    width: 160,
+    height: 84
+  },
+  {
+    image: '/images/logos/logo_rede_dental.png',
+    width: 319,
+    height: 167
+  },
+  {
+    image: '/images/logos/logo_rede_odonto.png',
+    width: 183,
+    height: 238
+  },
+  {
+    image: '/images/logos/logo_saude_caixa.png',
+    width: 366,
+    height: 151
+  },
+  {
+    image: '/images/logos/logo_unna.png',
+    width: 100,
+    height: 95
   }
 ]
 
