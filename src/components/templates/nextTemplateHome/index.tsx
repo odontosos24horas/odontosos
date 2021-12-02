@@ -27,6 +27,7 @@ const NextTemplateHome = ({
     <NextLayout>
       <NextHero />
       <NextCallToAction
+        id={'quemsomos'}
         title={nextCallToActionItems[0].title}
         text={nextCallToActionItems[0].text}
         image={nextCallToActionItems[0].image}
@@ -36,6 +37,19 @@ const NextTemplateHome = ({
         height={nextCallToActionItems[0].height}
         url={nextCallToActionItems[0].url}
       />
+      <Box pt={24}>
+        <NextCallToAction
+          id={'convenios'}
+          title={nextCallToActionItems[1].title}
+          text={nextCallToActionItems[1].text}
+          image={nextCallToActionItems[1].image}
+          textButton={nextCallToActionItems[1].textButton}
+          directionMd={nextCallToActionItems[1].directionMd}
+          width={nextCallToActionItems[1].width}
+          height={nextCallToActionItems[1].height}
+          url={nextCallToActionItems[1].url}
+        />
+      </Box>
       <Box pt={24}>
         <Container maxW='container.xl' px={14} pb={6}>
           <Text color={'next-primary'} fontWeight={700} fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
@@ -48,17 +62,8 @@ const NextTemplateHome = ({
         />
       </Box>
       <NextCallToAction
+        id={'trabalheconosco'}
         background
-        title={nextCallToActionItems[1].title}
-        text={nextCallToActionItems[1].text}
-        image={nextCallToActionItems[1].image}
-        textButton={nextCallToActionItems[1].textButton}
-        directionMd={nextCallToActionItems[1].directionMd}
-        width={nextCallToActionItems[1].width}
-        height={nextCallToActionItems[1].height}
-        url={nextCallToActionItems[1].url}
-      />
-      <NextCallToAction
         title={nextCallToActionItems[2].title}
         text={nextCallToActionItems[2].text}
         image={nextCallToActionItems[2].image}
@@ -67,8 +72,23 @@ const NextTemplateHome = ({
         width={nextCallToActionItems[2].width}
         height={nextCallToActionItems[2].height}
         url={nextCallToActionItems[2].url}
+        bgButton={'next-dark'}
       />
-      <NextContactUs />
+      <Box pb={24}>
+        <NextCallToAction
+          id={'comochegar'}
+          title={nextCallToActionItems[3].title}
+          text={nextCallToActionItems[3].text}
+          image={nextCallToActionItems[3].image}
+          textButton={nextCallToActionItems[3].textButton}
+          directionMd={nextCallToActionItems[3].directionMd}
+          width={nextCallToActionItems[3].width}
+          height={nextCallToActionItems[3].height}
+          url={nextCallToActionItems[3].url}
+          hasMap
+        />
+      </Box>
+      {/* <NextContactUs /> */}
     </NextLayout>
   )
 }

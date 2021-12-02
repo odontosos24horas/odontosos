@@ -28,6 +28,16 @@ export const nextCallToActionItems = [
     height: 493
   },
   {
+    title: 'URGÊNCIAS ODONTOLÓGICAS',
+    text: 'O QUE VEM A SER URGÊNCIA ODONTOLÓGICA? É todo aquele procedimento que necessita de atendimento imediato para minimizar o sofrimento do paciente. Para posteriormente, em um adequado momento, procurar o seu dentista e solucionar o problema em definitivo.',
+    image: '/images/home/urgencias.jpg',
+    textButton: 'VEJA COMO CHEGAR',
+    url: '#comochegar',
+    width: 720,
+    height: 493,
+    directionMd: 'row-reverse'
+  },
+  {
     title: 'TRABALHE CONOSCO',
     textButton: 'Enviar',
     url: `${nextSocialNetwork.whatsapp.url}`,
@@ -40,7 +50,7 @@ export const nextCallToActionItems = [
     title: 'VEJA COMO CHEGAR',
     text: 'Estamos localizados na rua Cláudio Manoel, 223 - Funcionários - Belo Horizonte - Minas Gerais.  Confira nossa localização no mapa e calcule sua rota.',
     textButton: '(31) 3586-0900',
-    url: `${nextSocialNetwork.whatsapp.url}`,
+    url: 'tel:3135860900',
     width: 595,
     height: 528,
     image: '/images/home/image_left.png'
