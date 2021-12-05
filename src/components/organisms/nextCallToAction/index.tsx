@@ -51,8 +51,8 @@ const NextCallToAction = ({
   }, [])
   if (!isFront) return null
   return (
-    <Stack id={id} bg={background ? 'next-primary' : ''} align={'center'} direction={{ base: directionBase, md: directionMd }}>
-      <Flex px={{ base: 10 }} pb={{ base: 20 }} flex={1} align={'center'} justify={'center'}>
+    <Stack id={id} bg={background ? 'next-primary' : ''} direction={{ base: directionBase, md: directionMd }}>
+      <Flex px={{ base: 10 }} pb={{ base: 20, md: 0 }} flex={1} align={'center'} justify={'center'}>
         <Stack spacing={6} w={'full'} maxW={'lg'}>
           <Text
             color={background ? 'white' : 'next-primary'}
@@ -73,7 +73,7 @@ const NextCallToAction = ({
           </Stack>
         </Stack>
       </Flex>
-      <Flex maxH={'30rem'} flex={1}>
+      <Flex flex={1} justify={'end'}>
         {!hasMap && (
           <Image
             alt={title}
@@ -83,11 +83,9 @@ const NextCallToAction = ({
           />
         )}
         {hasMap && (
-          <Box>
-            <Suspense fallback={() => 'loading'}>
-              {/* <NextMap /> */}
-            </Suspense>
-          </Box>
+          <Suspense fallback={() => 'loading'}>
+            <NextMap />
+          </Suspense>
         )}
       </Flex>
     </Stack>
