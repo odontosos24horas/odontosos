@@ -25,7 +25,8 @@ export const nextCallToActionItems = [
     textButton: 'VEJA COMO CHEGAR',
     url: '#comochegar',
     width: 720,
-    height: 493
+    height: 493,
+    content: 'image'
   },
   {
     title: 'URGÊNCIAS ODONTOLÓGICAS',
@@ -35,16 +36,16 @@ export const nextCallToActionItems = [
     url: '#comochegar',
     width: 720,
     height: 535,
-    directionMd: 'row-reverse'
+    directionMd: 'row-reverse',
+    content: 'image'
   },
   {
     title: 'TRABALHE CONOSCO',
-    textButton: 'Enviar',
-    url: `${nextSocialNetwork.whatsapp.url}`,
     width: 595,
     height: 528,
     image: '/images/home/image_left.png',
-    directionMd: 'row-reverse'
+    directionMd: 'row-reverse',
+    content: 'form'
   },
   {
     title: 'VEJA COMO CHEGAR',
@@ -53,7 +54,8 @@ export const nextCallToActionItems = [
     url: 'tel:3135860900',
     width: 595,
     height: 528,
-    image: '/images/home/image_left.png'
+    image: '/images/home/image_left.png',
+    content: 'map'
   }
 ] as unknown as Array<NextCallToActionProps>
 
