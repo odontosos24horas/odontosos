@@ -34,7 +34,7 @@ export const nextCallToActionItems = [
     textButton: 'VEJA COMO CHEGAR',
     url: '#comochegar',
     width: 720,
-    height: 493,
+    height: 535,
     directionMd: 'row-reverse'
   },
   {
