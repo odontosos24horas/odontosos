@@ -41,7 +41,7 @@ const NextContactUs = () => {
         body: JSON.stringify({
           email: values.email,
           fullname: values.name,
-          subject: values.phone,
+          subject: values.name,
           message: `${values.email}: ${values.name} : ${values.phone}`
         }),
         headers: {
