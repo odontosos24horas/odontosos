@@ -7,6 +7,7 @@ import {
 import NextButton from '../../atoms/nextButton'
 import Link from 'next/link'
 import Image from 'next/image'
+import NextContactUs from '../nextContactUs'
 const NextMap = React.lazy(() => import('../../atoms/nextMap'))
 
 export interface NextCallToActionProps {
@@ -21,7 +22,7 @@ export interface NextCallToActionProps {
   height: string
   directionMd?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   directionBase?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-  hasMap?: boolean;
+  content: 'image' | 'map' | 'form';
   id: string;
 }
 
@@ -33,11 +34,11 @@ const NextCallToAction = ({
   url,
   width,
   height,
-  textButton = '< Faça um orçamento />',
+  textButton,
   directionMd = 'row',
   directionBase = 'column',
   bgButton,
-  hasMap,
+  content,
   id
 }: NextCallToActionProps) => {
   const [isFront, setIsFront] = useState(false)
@@ -51,7 +52,7 @@ const NextCallToAction = ({
   if (!isFront) return null
   return (
     <Stack id={id} bg={background ? 'next-primary' : ''} direction={{ base: directionBase, md: directionMd }}>
-      <Flex px={{ base: 10 }} pb={{ base: 20, md: 0 }} flex={1} align={'center'} justify={'center'}>
+      <Flex px={{ base: 10 }} pt={content === 'form' ? 20 : 0} pb={{ base: 20, md: 0 }} flex={1} align={'center'} justify={'center'}>
         <Stack spacing={6} w={'full'} maxW={'lg'}>
           <Text
             color={background ? 'white' : 'next-primary'}
@@ -60,20 +61,25 @@ const NextCallToAction = ({
           >
             {title}
           </Text>
+          {content === 'form' && (
+            <NextContactUs />
+          )}
           <Text fontSize={{ base: 'md', lg: 'lg' }} color={'next-gray'}>
             {text}
           </Text>
-          <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
-            <Link href={`${url}%0A${textButton}`}>
-              <a target="_blank" rel="noreferrer">
-                <NextButton bg={bgButton}>{textButton}</NextButton>
-              </a>
-            </Link>
-          </Stack>
+          {textButton && (
+            <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
+              <Link href={`${url}%0A${textButton}`}>
+                <a target="_blank" rel="noreferrer">
+                  <NextButton bg={bgButton}>{textButton}</NextButton>
+                </a>
+              </Link>
+            </Stack>
+          )}
         </Stack>
       </Flex>
       <Flex flex={1} justify={'end'}>
-        {!hasMap && (
+        {(content === 'image' || content === 'form') && (
           <Image
             alt={title}
             src={image}
@@ -81,7 +87,7 @@ const NextCallToAction = ({
             height={height}
           />
         )}
-        {hasMap && (
+        {content === 'map' && (
           <Suspense fallback={() => 'loading'}>
             <NextMap />
           </Suspense>

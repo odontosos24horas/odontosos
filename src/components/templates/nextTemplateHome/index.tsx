@@ -35,6 +35,7 @@ const NextTemplateHome = ({
           width={nextCallToActionItems[0].width}
           height={nextCallToActionItems[0].height}
           url={nextCallToActionItems[0].url}
+          content={nextCallToActionItems[0].content}
         />
       </Box>
       <Box pb={{ base: 20 }}>
@@ -48,6 +49,7 @@ const NextTemplateHome = ({
           width={nextCallToActionItems[1].width}
           height={nextCallToActionItems[1].height}
           url={nextCallToActionItems[1].url}
+          content={nextCallToActionItems[1].content}
         />
       </Box>
       <Box pb={{ base: 20 }}>
@@ -72,6 +74,7 @@ const NextTemplateHome = ({
           height={nextCallToActionItems[2].height}
           url={nextCallToActionItems[2].url}
           bgButton={'next-dark'}
+          content={nextCallToActionItems[2].content}
         />
       </Box>
       <Box pb={{ base: 20 }}>
@@ -85,7 +88,7 @@ const NextTemplateHome = ({
           width={nextCallToActionItems[3].width}
           height={nextCallToActionItems[3].height}
           url={nextCallToActionItems[3].url}
-          hasMap
+          content={nextCallToActionItems[3].content}
         />
       </Box>
     </NextLayout>
