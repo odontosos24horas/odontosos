@@ -42,10 +42,10 @@ const NextContactUs = () => {
       setButtonText('Enviando...')
       await fetch('/api/sendgrid', {
         body: JSON.stringify({
-          email: email,
-          fullname: fullname,
-          subject: phone,
-          message: `${fullname}: ${email} : ${phone}`
+          email: values.email,
+          fullname: values.name,
+          subject: values.phone,
+          message: `${values.email}: ${values.name} : ${values.phone}`
         }),
         headers: {
           'Content-Type': 'application/json'
