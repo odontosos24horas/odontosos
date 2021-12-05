@@ -8,7 +8,6 @@ import NextLayout from '../nextLayout'
 
 import {
   Box,
-  Container,
   Text
 } from '@chakra-ui/react'
 
@@ -90,7 +89,6 @@ const NextTemplateHome = ({
           hasMap
         />
       </Box>
-      {/* <NextContactUs /> */}
     </NextLayout>
   )
 }
