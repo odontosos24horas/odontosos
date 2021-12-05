@@ -1,6 +1,6 @@
 const fonts = {
-  heading: 'Rajdhani',
-  body: 'Open Sans'
+  heading: 'Roboto',
+  body: 'Roboto'
 }
 
 export default fonts

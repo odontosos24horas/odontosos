@@ -2,7 +2,7 @@ import Head from 'next/head'
 import React, { PropsWithChildren } from 'react'
 import NextHeader from '../../organisms/nextHeader'
 import NextFooter from '../../organisms/nextFooter'
-import { Box, Container } from '@chakra-ui/react'
+import { Box } from '@chakra-ui/react'
 import NextWhatsIcon from '../../atoms/nextWhatsIcon'
 import Link from 'next/link'
 import { nextSocialNetwork } from '../../../data'
@@ -14,26 +14,28 @@ type Props = {
 
 const NextLayout = ({
   children,
-  title = 'NeXTIME',
-  description = 'Site da empresa NeXTIME, temos como visão: otimizar o tempo através do desenvolvimento de novas tecnologias, produtos inovadores, soluções criativas e educação. Possibilitando aos indivíduos gastarem suas energias realizando os seus sonhos.'
+  title = 'Dentista 24 horas BH | Urgência|ODONTO S.O.S|Emergência Odontológica',
+  description = 'Odonto SOS tem atendimentos 24 horas de urgência odontológica em BH e região metropolitana de Belo Horizonte. Oferece dentistas de plantão 24 horas na região da Savassi em BH.'
 }: PropsWithChildren<Props>) => {
   return (
     <>
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
-        <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <NextHeader />
+      <header>
+        <NextHeader />
+      </header>
 
       <main>
-        <Container maxW="container.xl">
-          {children}
-        </Container>
+        {children}
       </main>
 
-      <NextFooter />
+      <footer>
+        <NextFooter />
+      </footer>
+
       <Box
         position="fixed"
         width="60px"

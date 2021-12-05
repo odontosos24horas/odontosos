@@ -2,9 +2,7 @@ import React from 'react'
 import {
   Box,
   SimpleGrid,
-  Container,
-  Center,
-  Heading
+  Container
 } from '@chakra-ui/react'
 import NextFeature, { NextFeatureProps } from '../../molecules/nextFeature'
 
@@ -15,15 +13,10 @@ export interface NextFeaturesProps {
 
 const NextFeatures = ({
   items,
-  numberGrid = 3
+  numberGrid = 5
 }: NextFeaturesProps) => {
   return (
-    <Container maxW="container.lg" pb={[32, 32]}>
-      <Center pb={12}>
-        <Heading>
-          Usamos as melhores tecnologias do mercado
-        </Heading>
-      </Center>
+    <Container maxW="container.lg">
       <Box p={4}>
         <SimpleGrid columns={{ base: 3, md: numberGrid }} spacing={10}>
           {items?.map((item, index) => (
@@ -32,6 +25,8 @@ const NextFeatures = ({
               title={item.title}
               text={item.text}
               image={item.image}
+              width={item.width}
+              height={item.height}
             />
           ))}
         </SimpleGrid>

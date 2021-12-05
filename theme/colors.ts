@@ -1,14 +1,13 @@
 const colors = {
   'next-primary': '#007100',
-  'next-light': '#6688CD',
+  'next-light': '#E5E5E5',
   'next-green': '#85F2C9',
-  'next-dark': '#2D426D',
-  'next-gray': '#BDBDBD',
-  'next-dark-gray': '#2A2A2D',
+  'next-dark': '#18352B',
+  'next-gray': '#5C5959',
+  'next-dark-green': '#18352B',
   dark: '#17171B',
   blue: {
     200: '#4882F8',
-    // ...
     900: '#2D426D'
   }
 }

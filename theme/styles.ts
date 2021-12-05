@@ -2,8 +2,8 @@ const styles = {
   global: () => ({
     body: {
       fontFamily: 'body',
-      color: 'whiteAlpha.900',
-      bg: 'dark',
+      color: 'next-gray',
+      bg: 'next-light',
       lineHeight: 'base'
     }
   })

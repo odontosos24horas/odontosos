@@ -2,7 +2,6 @@
 import React from 'react'
 import NextTemplateHome from '../components/templates/nextTemplateHome'
 import {
-  nextHeroItem,
   nextFeatureItems,
   nextCallToActionItems,
   nextTechnologyItems,
@@ -12,7 +11,6 @@ import {
 const NextHome = () => {
   return (
     <NextTemplateHome
-      nextHeroItem={nextHeroItem}
       nextFeatureItems={nextFeatureItems}
       nextCallToActionItems={nextCallToActionItems}
       nextTechnologyItems={nextTechnologyItems}

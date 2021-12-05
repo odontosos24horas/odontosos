@@ -1,6 +1,5 @@
 import React from 'react'
 import Image from 'next/image'
-import NextJSLink from 'next/link'
 import {
   Box,
   Flex,
@@ -15,7 +14,7 @@ import {
   PopoverContent,
   useDisclosure,
   Container,
-  HStack
+  Heading
 } from '@chakra-ui/react'
 import {
   HamburgerIcon,
@@ -23,8 +22,6 @@ import {
   ChevronDownIcon,
   ChevronRightIcon
 } from '@chakra-ui/icons'
-import { FaFacebookF, FaInstagram, FaLinkedinIn } from 'react-icons/fa'
-import { nextSocialNetwork } from '../../../data'
 
 const DesktopSubNav = ({ label, href, subLabel }: NavItem) => {
   return (
@@ -69,35 +66,25 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: 'Home'
+    label: 'QUEM SOMOS',
+    href: '#quemsomos'
   },
-  // {
-  //   label: 'Quem somos',
-  //   href: '#'
-  // },
-  // {
-  //   label: 'Portfólio',
-  //   children: [
-  //     {
-  //       label: 'Tattoo Pop',
-  //       subLabel: 'Find your dream design job',
-  //       href: '#'
-  //     },
-  //     {
-  //       label: 'Optar',
-  //       subLabel: 'An exclusive list for contract work',
-  //       href: '#'
-  //     }
-  //   ]
-  // },
   {
-    label: 'Orçamento',
-    href: nextSocialNetwork.whatsapp.url
+    label: 'COMO CHEGAR',
+    href: '#comochegar'
+  },
+  {
+    label: 'CONVÊNIOS',
+    href: '#convenios'
+  },
+  {
+    label: 'TRABALHE CONOSCO',
+    href: '#trabalheconosco'
   }
 ]
 
 const DesktopNav = () => {
-  const linkColor = 'white'
+  const linkColor = 'next-dark'
   const linkHoverColor = 'next-primary'
   const popoverContentBgColor = 'gray.800'
 
@@ -108,9 +95,8 @@ const DesktopNav = () => {
           <Popover trigger={'hover'} placement={'bottom-start'}>
             <PopoverTrigger>
               <Link
-                p={2}
                 href={navItem.href ?? '#'}
-                fontSize={'sm'}
+                fontSize={'md'}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{
@@ -198,7 +184,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={'gray.800'}
+      bg={'next-dark'}
       p={4}
       display={{ md: 'none' }}>
       {NAV_ITEMS.map((navItem) => (
@@ -212,16 +198,36 @@ const NextHeader = () => {
   const { isOpen, onToggle } = useDisclosure()
 
   return (
-    <Box
-      borderBottom={1}
-      borderStyle={'solid'}
-      borderColor={'gray.700'}
-    >
-      <Container maxW="container.lg">
+    <Box py={{ base: 0, md: 4 }}>
+      <Container maxW="container.xl">
         <Flex
           color={'gray.600'}
           minH={'70px'}
           align={'center'}>
+          <Flex flex={{ base: 1 }} justify={{ base: 'center' }}>
+            <Image
+              src="/images/logos/logo_nextime.svg"
+              alt="OdontoSOS Logo"
+              width={261}
+              height={48}
+              layout="fixed"
+            />
+          </Flex>
+          <Flex display={{ base: 'none', md: 'flex' }}>
+            <DesktopNav />
+          </Flex>
+
+          <Flex flex={{ base: 1 }}justify={{ base: 'center' }}>
+            <Box display={{ base: 'none', md: 'block' }}>
+              <Heading color="next-primary" size="lg">
+                (31) 3586-0900
+              </Heading>
+              <Text color="next-primary" fontSize="sm">
+                R. Cláudio Manoel, 223 - Funcionários
+              </Text>
+            </Box>
+          </Flex>
+
           <Flex
             flex={{ base: 1 }}
             display={{ base: 'flex', md: 'none' }}>
@@ -230,40 +236,11 @@ const NextHeader = () => {
               icon={
                 isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
               }
-              variant={'ghost'}
+              bg={'transparent'}
+              color={'next-primary'}
               aria-label={'Toggle Navigation'}
             />
           </Flex>
-          <Flex flex={{ base: 1 }} justify={{ base: 'center' }}>
-            <Image src="/images/logos/logo_nextime.svg" alt="NeXTIME Logo" width={146} height={45} />
-          </Flex>
-          <Flex display={{ base: 'none', md: 'flex' }}>
-            <DesktopNav />
-          </Flex>
-
-          <Stack
-            flex={{ base: 1 }}
-            justify={'flex-end'}
-            direction={'row'}
-            spacing={6}>
-            <HStack spacing={{ base: 3, md: 6 }}>
-              <NextJSLink href={'https://www.instagram.com/nextimetec/'}>
-                <a target="_blank" rel="noreferrer">
-                  <Icon color="next-gray" _hover={{ color: 'next-primary' }} as={FaInstagram} w={6} h={6}/>
-                </a>
-              </NextJSLink>
-              <NextJSLink href={'https://www.facebook.com/nextimetecnologia'}>
-                <a target="_blank" rel="noreferrer">
-                  <Icon color="next-gray" _hover={{ color: 'next-primary' }} as={FaFacebookF} w={6} h={6}/>
-                </a>
-              </NextJSLink>
-              <NextJSLink href={'https://www.linkedin.com/company/nextimetec/'}>
-                <a target="_blank" rel="noreferrer">
-                  <Icon color="next-gray" _hover={{ color: 'next-primary' }} as={FaLinkedinIn} w={6} h={6}/>
-                </a>
-              </NextJSLink>
-            </HStack>
-          </Stack>
         </Flex>
 
         <Collapse in={isOpen} animateOpacity>

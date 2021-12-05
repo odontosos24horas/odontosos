@@ -1,114 +1,73 @@
-import React from 'react'
+import React, { ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 
 import {
   Box,
   Container,
-  Grid,
-  GridItem,
-  Heading,
-  HStack,
-  Icon,
   SimpleGrid,
-  Text
+  Stack,
+  Text,
+  useColorModeValue
 } from '@chakra-ui/react'
 
-import {
-  FaInstagram,
-  FaLinkedinIn,
-  FaWhatsapp,
-  FaMailBulk,
-  FaYoutube,
-  FaFacebookMessenger
-} from 'react-icons/fa'
+const ListHeader = ({ children }: { children: ReactNode }) => {
+  return (
+    <Text fontWeight={'500'} fontSize={'lg'} mb={2}>
+      {children}
+    </Text>
+  )
+}
 
 export type NextFooterProps = {
   bg?: 'next-primary' | undefined
 }
 
-const NextFooter = ({
-  bg = 'next-primary'
-}: NextFooterProps) => {
+const NextFooter = () => {
   return (
     <footer>
-      <Box bg={bg} pt={12} pb={12}>
-        <Grid
-          templateColumns="repeat(5, 2fr)"
-        >
-          <GridItem colSpan={[1, 3]}>
-            <Container maxW="2xl">
+      <Box
+        bg={useColorModeValue('gray.50', 'gray.900')}
+        color={useColorModeValue('gray.700', 'gray.200')}>
+        <Container as={Stack} maxW={'6xl'} py={10}>
+          <SimpleGrid
+            templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr' }}
+            spacing={8}>
+            <Stack spacing={6}>
               <Box>
-                <Heading fontWeight={600}>
-                  Fale com a gente:
-                </Heading>
-                <HStack spacing={6} pt={4} pb={10}>
-                  <Link href={'mailto:contato@nextime.com.br?subject=Orçamento para NeXTIME&body=Olá,%20NeXTIME'}>
-                    <a target="_blank" rel="noreferrer">
-                      <Icon color="white" _hover={{ color: 'next-dark' }} as={FaMailBulk} w={16} h={16}/>
-                    </a>
-                  </Link>
-                  <Link href={'https://api.whatsapp.com/send?phone=5511972436305&text=Ol%C3%A1,%20NeXTIME!%0AGostaria%20de%20solicitar%20um%20orçamento.'}>
-                    <a target="_blank" rel="noreferrer">
-                      <Icon color="white" _hover={{ color: 'next-dark' }} as={FaWhatsapp} w={16} h={16}/>
-                    </a>
-                  </Link>
-                  <Link href={'https://m.me/102621504903865'}>
-                    <a target="_blank" rel="noreferrer">
-                      <Icon color="white" _hover={{ color: 'next-dark' }} as={FaFacebookMessenger} w={16} h={16}/>
-                    </a>
-                  </Link>
-                  <Link href={'https://www.instagram.com/nextimetec/'}>
-                    <a target="_blank" rel="noreferrer">
-                      <Icon color="white" _hover={{ color: 'next-dark' }} as={FaInstagram} w={16} h={16}/>
-                    </a>
-                  </Link>
-                </HStack>
-                <Heading fontWeight={600}>
-                  Serviços
-                </Heading>
-                <SimpleGrid columns={[1, 2]} spacing={1} pt={3} pb={16}>
-                  <Text>Desenvolvimento de aplicativos</Text>
-                  <Text>Desenvolvimento de sites otimizados</Text>
-                  <Text>Desenvolvimento de Design System</Text>
-                  <Text>Design para campanhas</Text>
-                  <Text>Marketing Digital</Text>
-                  <Text>Inteligência Artificial</Text>
-                </SimpleGrid>
-                <HStack spacing={6} pt={3} pb={12}>
-                  <Box pe={6} pt={2}>
-                    <Image
-                      src="/images/logos/nextime_logo_white.svg"
-                      alt="NeXTIME Logo"
-                      width={146}
-                      height={46}
-                    />
-                  </Box>
-                  <Link href={'https://www.linkedin.com/company/nextimetec/'}>
-                    <a target="_blank" rel="noreferrer">
-                      <Icon color="white" _hover={{ color: 'next-dark' }} as={FaLinkedinIn} w={8} h={8}/>
-                    </a>
-                  </Link>
-                  <Link href={'https://www.youtube.com/watch?v=-TqTAxrOxaM'}>
-                    <a target="_blank" rel="noreferrer">
-                      <Icon color="white" _hover={{ color: 'next-dark' }} as={FaYoutube} w={8} h={8}/>
-                    </a>
-                  </Link>
-                </HStack>
+                <Image src="/images/logos/logo_nextime.svg" alt="NeXTIME Logo" width={261} height={48} />
               </Box>
-            </Container>
-          </GridItem>
-          <GridItem display={['none', 'block']} colSpan={[1, 2]}>
-            <Box>
-              <Image
-                src="/images/logos/logo_footer.svg"
-                alt="NeXTIME Logo"
-                width={462}
-                height={482}
-              />
-            </Box>
-          </GridItem>
-        </Grid>
+              <Text fontSize={'sm'}>
+              © 2021 Odonto SOS. Todos os direitos reservados.
+              </Text>
+              <Text>
+                Desenvolvido por:
+                <Link href={'https://nextime.com.br/'}>
+                  <a>
+                    <Text color="next-primary" fontWeight="bold">
+                        NeXTIME
+                    </Text>
+                  </a>
+                </Link>
+              </Text>
+            </Stack>
+            <Stack align={'flex-start'}>
+              <ListHeader>Menu</ListHeader>
+              <Link href={'quemsomos'}>Quem Somos</Link>
+              <Link href={'comochegar'}>Como Chegar</Link>
+              <Link href={'convenios'}>Convênios</Link>
+              <Link href={'trabalheconosco'}>Trabalhe Conosco</Link>
+            </Stack>
+            <Stack align={'flex-start'}>
+              <ListHeader>Contatos</ListHeader>
+              <Link href={'mailto:odontosos@odontosos.com.br'}>E-mail</Link>
+              <Link href={'#'}>Facebook</Link>
+              <Link href={'#'}>Twitter</Link>
+              <Link href={'https://www.instagram.com/clinica_odontosos/'}>Instagram</Link>
+              <Link href={'#'}>LinkedIn</Link>
+            </Stack>
+          </SimpleGrid>
+        </Container>
       </Box>
     </footer>
   )

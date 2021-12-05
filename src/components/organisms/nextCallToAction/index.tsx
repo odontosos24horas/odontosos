@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { Suspense, useEffect, useState } from 'react'
 import {
-  Container,
+  Box,
   Flex,
   Stack,
   Text
@@ -8,9 +8,11 @@ import {
 import NextButton from '../../atoms/nextButton'
 import Link from 'next/link'
 import Image from 'next/image'
+const NextMap = React.lazy(() => import('../../atoms/nextMap'))
 
 export interface NextCallToActionProps {
-  bg?: string;
+  bgButton?: 'next-primary' | 'next-dark' | 'white' | 'dark' | undefined
+  background?: boolean;
   title: string;
   text: string;
   textButton?: string;
@@ -20,10 +22,12 @@ export interface NextCallToActionProps {
   height: string
   directionMd?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   directionBase?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
+  hasMap?: boolean;
+  id: string;
 }
 
 const NextCallToAction = ({
-  bg,
+  background,
   title,
   text,
   image,
@@ -32,38 +36,61 @@ const NextCallToAction = ({
   height,
   textButton = '< Faça um orçamento />',
   directionMd = 'row',
-  directionBase = 'column'
+  directionBase = 'column',
+  bgButton,
+  hasMap,
+  id
 }: NextCallToActionProps) => {
+  const [isFront, setIsFront] = useState(false)
+  useEffect(() => {
+    process.nextTick(() => {
+      if (globalThis.window ?? false) {
+        setIsFront(true)
+      }
+    })
+  }, [])
+  if (!isFront) return null
   return (
-    <Container bg={bg} maxW="container.xl" pb={12} >
-      <Stack align={'center'} direction={{ base: directionBase, md: directionMd }}>
-        <Flex flex={1} align={'center'} justify={'center'}>
-          <Stack spacing={6} w={'full'} maxW={'lg'}>
-            <Text lineHeight={1.33} fontWeight={600} fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
-              {title}
-            </Text>
-            <Text fontSize={{ base: 'md', lg: 'lg' }} color={'white'}>
-              {text}
-            </Text>
-            <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
-              <Link href={`${url}%0A${textButton}`}>
-                <a target="_blank" rel="noreferrer">
-                  <NextButton variant="outline">{textButton}</NextButton>
-                </a>
-              </Link>
-            </Stack>
+    <Stack id={id} bg={background ? 'next-primary' : ''} align={'center'} direction={{ base: directionBase, md: directionMd }}>
+      <Flex px={{ base: 10 }} pb={{ base: 20 }} flex={1} align={'center'} justify={'center'}>
+        <Stack spacing={6} w={'full'} maxW={'lg'}>
+          <Text
+            color={background ? 'white' : 'next-primary'}
+            fontWeight={700}
+            fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+          >
+            {title}
+          </Text>
+          <Text fontSize={{ base: 'md', lg: 'lg' }} color={'next-gray'}>
+            {text}
+          </Text>
+          <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
+            <Link href={`${url}%0A${textButton}`}>
+              <a target="_blank" rel="noreferrer">
+                <NextButton bg={bgButton}>{textButton}</NextButton>
+              </a>
+            </Link>
           </Stack>
-        </Flex>
-        <Flex maxH={'30rem'} flex={1}>
+        </Stack>
+      </Flex>
+      <Flex maxH={'30rem'} flex={1}>
+        {!hasMap && (
           <Image
             alt={title}
             src={image}
             width={width}
             height={height}
           />
-        </Flex>
-      </Stack>
-    </Container>
+        )}
+        {hasMap && (
+          <Box>
+            <Suspense fallback={() => 'loading'}>
+              <NextMap />
+            </Suspense>
+          </Box>
+        )}
+      </Flex>
+    </Stack>
   )
 }
 
