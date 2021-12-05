@@ -40,7 +40,16 @@ const NextFooter = () => {
               <Text fontSize={'sm'}>
               © 2021 Odonto SOS. Todos os direitos reservados.
               </Text>
-              <Link href={'https://nextime.com.br/'}>Desenvolvido por NeXTIME</Link>
+              <Text>
+                Desenvolvido por:
+                <Link href={'https://nextime.com.br/'}>
+                  <a>
+                    <Text color="next-primary" fontWeight="bold">
+                        NeXTIME
+                    </Text>
+                  </a>
+                </Link>
+              </Text>
             </Stack>
             <Stack align={'flex-start'}>
               <ListHeader>Menu</ListHeader>

@@ -16,7 +16,7 @@ const NextFeatures = ({
   numberGrid = 5
 }: NextFeaturesProps) => {
   return (
-    <Container maxW="container.lg" pb={[32, 32]}>
+    <Container maxW="container.lg">
       <Box p={4}>
         <SimpleGrid columns={{ base: 3, md: numberGrid }} spacing={10}>
           {items?.map((item, index) => (

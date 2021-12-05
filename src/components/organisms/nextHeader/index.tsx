@@ -184,7 +184,7 @@ const MobileNavItem = ({ label, children, href }: NavItem) => {
 const MobileNav = () => {
   return (
     <Stack
-      bg={'gray.800'}
+      bg={'next-dark'}
       p={4}
       display={{ md: 'none' }}>
       {NAV_ITEMS.map((navItem) => (
@@ -204,20 +204,14 @@ const NextHeader = () => {
           color={'gray.600'}
           minH={'70px'}
           align={'center'}>
-          <Flex
-            flex={{ base: 1 }}
-            display={{ base: 'flex', md: 'none' }}>
-            <IconButton
-              onClick={onToggle}
-              icon={
-                isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
-              }
-              variant={'ghost'}
-              aria-label={'Toggle Navigation'}
-            />
-          </Flex>
           <Flex flex={{ base: 1 }} justify={{ base: 'center' }}>
-            <Image src="/images/logos/logo_nextime.svg" alt="NeXTIME Logo" width={261} height={48} />
+            <Image
+              src="/images/logos/logo_nextime.svg"
+              alt="OdontoSOS Logo"
+              width={261}
+              height={48}
+              layout="fixed"
+            />
           </Flex>
           <Flex display={{ base: 'none', md: 'flex' }}>
             <DesktopNav />
@@ -232,6 +226,20 @@ const NextHeader = () => {
                 R. Cláudio Manoel, 223 - Funcionários
               </Text>
             </Box>
+          </Flex>
+
+          <Flex
+            flex={{ base: 1 }}
+            display={{ base: 'flex', md: 'none' }}>
+            <IconButton
+              onClick={onToggle}
+              icon={
+                isOpen ? <CloseIcon w={3} h={3} /> : <HamburgerIcon w={5} h={5} />
+              }
+              bg={'transparent'}
+              color={'next-primary'}
+              aria-label={'Toggle Navigation'}
+            />
           </Flex>
         </Flex>
 
