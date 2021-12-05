@@ -3,7 +3,6 @@ import { NextFeatureProps } from '../../molecules/nextFeature'
 import NextCallToAction, { NextCallToActionProps } from '../../organisms/nextCallToAction'
 import NextFeatures from '../../organisms/nextFeatures'
 import NextHero from '../../organisms/nextHero'
-import NextContactUs from '../../organisms/nextContactUs'
 import NextLayout from '../nextLayout'
 
 import {
