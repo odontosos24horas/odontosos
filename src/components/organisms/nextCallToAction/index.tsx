@@ -85,7 +85,7 @@ const NextCallToAction = ({
         {hasMap && (
           <Box>
             <Suspense fallback={() => 'loading'}>
-              <NextMap />
+              {/* <NextMap /> */}
             </Suspense>
           </Box>
         )}
