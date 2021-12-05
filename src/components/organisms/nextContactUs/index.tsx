@@ -6,9 +6,6 @@ import NextButton from '../../atoms/nextButton'
 
 const NextContactUs = () => {
   const toast = useToast()
-  const [fullname, setFullname] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
 
   //   Setting button text
   const [buttonText, setButtonText] = useState('Enviar contato')
@@ -71,8 +68,6 @@ const NextContactUs = () => {
             isClosable: true
           })
         })
-      setEmail(values.email)
-      setPhone(values.phone)
     }
   }
   return (
@@ -83,9 +78,6 @@ const NextContactUs = () => {
         phone: ''
       }}
       onSubmit={(values, actions) => {
-        setFullname(values.name)
-        setEmail(values.email)
-        setPhone(values.phone)
         handleSubmit(values)
         actions.setSubmitting(false)
       }}
