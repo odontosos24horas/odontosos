@@ -37,6 +37,7 @@ const NextContactUs = () => {
   const handleSubmit = async (values: any) => {
     if (handleValidationName(values.name) === '' && handleValidationEmail(values.email) === '' && handleValidationPhone(values.phone) === '') {
       setButtonText('Enviando...')
+      console.log('VALUES', values)
       await fetch('/api/sendgrid', {
         body: JSON.stringify({
           email: values.email,
