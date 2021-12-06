@@ -6,9 +6,6 @@ import NextButton from '../../atoms/nextButton'
 
 const NextContactUs = () => {
   const toast = useToast()
-  const [fullname, setFullname] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
 
   //   Setting button text
   const [buttonText, setButtonText] = useState('Enviar contato')
@@ -40,12 +37,13 @@ const NextContactUs = () => {
   const handleSubmit = async (values: any) => {
     if (handleValidationName(values.name) === '' && handleValidationEmail(values.email) === '' && handleValidationPhone(values.phone) === '') {
       setButtonText('Enviando...')
+      console.log('VALUES', values)
       await fetch('/api/sendgrid', {
         body: JSON.stringify({
-          email: email,
-          fullname: fullname,
-          subject: phone,
-          message: `${fullname}: ${email} : ${phone}`
+          email: values.email,
+          fullname: values.name,
+          subject: values.name,
+          message: `${values.email}: ${values.name} : ${values.phone}`
         }),
         headers: {
           'Content-Type': 'application/json'
@@ -71,8 +69,6 @@ const NextContactUs = () => {
             isClosable: true
           })
         })
-      setEmail(values.email)
-      setPhone(values.phone)
     }
   }
   return (
@@ -83,9 +79,6 @@ const NextContactUs = () => {
         phone: ''
       }}
       onSubmit={(values, actions) => {
-        setFullname(values.name)
-        setEmail(values.email)
-        setPhone(values.phone)
         handleSubmit(values)
         actions.setSubmitting(false)
       }}
