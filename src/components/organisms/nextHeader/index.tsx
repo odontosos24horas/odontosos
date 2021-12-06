@@ -1,5 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
+import NextLink from 'next/link'
 import {
   Box,
   Flex,
@@ -190,6 +191,13 @@ const MobileNav = () => {
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
+      <NextLink href={'tel:3135860900'}>
+        <a>
+          <Heading mt={8} color="white" size="lg">
+            (31) 3586-0900
+          </Heading>
+        </a>
+      </NextLink>
     </Stack>
   )
 }
@@ -219,9 +227,13 @@ const NextHeader = () => {
 
           <Flex flex={{ base: 1 }}justify={{ base: 'center' }}>
             <Box display={{ base: 'none', md: 'block' }}>
-              <Heading color="next-primary" size="lg">
-                (31) 3586-0900
-              </Heading>
+              <NextLink href={'tel:3135860900'}>
+                <a>
+                  <Heading color="next-primary" size="lg">
+                    (31) 3586-0900
+                  </Heading>
+                </a>
+              </NextLink>
               <Text color="next-primary" fontSize="sm">
                 R. Cláudio Manoel, 223 - Funcionários
               </Text>

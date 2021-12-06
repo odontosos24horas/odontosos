@@ -5,6 +5,7 @@ import Link from 'next/link'
 import {
   Box,
   Container,
+  Heading,
   SimpleGrid,
   Stack,
   Text,
@@ -31,7 +32,7 @@ const NextFooter = () => {
         color={useColorModeValue('gray.700', 'gray.200')}>
         <Container as={Stack} maxW={'6xl'} py={10}>
           <SimpleGrid
-            templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr' }}
+            templateColumns={{ sm: '1fr 1fr', md: '2fr 1fr 1fr 2fr' }}
             spacing={8}>
             <Stack spacing={6}>
               <Box>
@@ -65,6 +66,16 @@ const NextFooter = () => {
               <Link href={'#'}>Twitter</Link>
               <Link href={'https://www.instagram.com/clinica_odontosos/'}>Instagram</Link>
               <Link href={'#'}>LinkedIn</Link>
+            </Stack>
+            <Stack align={'flex-start'}>
+              <Link href={'tel:3135860900'}>
+                <Heading color="next-primary" size="lg">
+                  (31) 3586-0900
+                </Heading>
+              </Link>
+              <Text color="next-primary" fontSize="sm">
+                R. Cláudio Manoel, 223 - Funcionários
+              </Text>
             </Stack>
           </SimpleGrid>
         </Container>
