@@ -54,18 +54,15 @@ const NextFooter = () => {
             </Stack>
             <Stack align={'flex-start'}>
               <ListHeader>Menu</ListHeader>
-              <Link href={'quemsomos'}>Quem Somos</Link>
-              <Link href={'comochegar'}>Como Chegar</Link>
-              <Link href={'convenios'}>Convênios</Link>
-              <Link href={'trabalheconosco'}>Trabalhe Conosco</Link>
+              <Link href={'#quemsomos'}>Quem Somos</Link>
+              <Link href={'#comochegar'}>Como Chegar</Link>
+              <Link href={'#convenios'}>Convênios</Link>
+              <Link href={'#trabalheconosco'}>Trabalhe Conosco</Link>
             </Stack>
             <Stack align={'flex-start'}>
               <ListHeader>Contatos</ListHeader>
               <Link href={'mailto:odontosos@odontosos.com.br'}>E-mail</Link>
-              <Link href={'#'}>Facebook</Link>
-              <Link href={'#'}>Twitter</Link>
-              <Link href={'https://www.instagram.com/clinica_odontosos/'}>Instagram</Link>
-              <Link href={'#'}>LinkedIn</Link>
+              <Link href={'https://instagram.com/clinicaodontososbh'}>Instagram</Link>
             </Stack>
             <Stack align={'flex-start'}>
               <Link href={'tel:3135860900'}>

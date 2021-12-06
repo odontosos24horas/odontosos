@@ -69,8 +69,8 @@ const NextCallToAction = ({
           </Text>
           {textButton && (
             <Stack direction={{ base: 'column', md: 'row' }} spacing={4}>
-              <Link href={`${url}%0A${textButton}`}>
-                <a target="_blank" rel="noreferrer">
+              <Link href={url}>
+                <a>
                   <NextButton bg={bgButton}>{textButton}</NextButton>
                 </a>
               </Link>
