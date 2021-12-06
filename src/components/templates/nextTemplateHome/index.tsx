@@ -40,7 +40,7 @@ const NextTemplateHome = ({
       </Box>
       <Box pb={{ base: 20 }}>
         <NextCallToAction
-          id={'convenios'}
+          id={'urgencias'}
           title={nextCallToActionItems[1].title}
           text={nextCallToActionItems[1].text}
           image={nextCallToActionItems[1].image}
@@ -52,7 +52,7 @@ const NextTemplateHome = ({
           content={nextCallToActionItems[1].content}
         />
       </Box>
-      <Box pb={{ base: 20 }}>
+      <Box id={'convenios'} pb={{ base: 20 }}>
         <Text px={{ base: 10 }} color={'next-primary'} fontWeight={700} fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
           CONVÊNIOS
         </Text>

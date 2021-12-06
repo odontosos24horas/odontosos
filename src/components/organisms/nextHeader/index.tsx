@@ -214,10 +214,10 @@ const NextHeader = () => {
           align={'center'}>
           <Flex flex={{ base: 1 }} justify={{ base: 'center' }}>
             <Image
-              src="/images/logos/logo_nextime.svg"
+              src="/images/logos/logo_sos_header.png"
               alt="OdontoSOS Logo"
-              width={261}
-              height={48}
+              width={278}
+              height={40}
               layout="fixed"
             />
           </Flex>
