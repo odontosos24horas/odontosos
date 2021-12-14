@@ -6,8 +6,8 @@ sgMail.setApiKey(process.env.SENDGRID_API_KEY as string)
 
 async function sendEmail(req: NextApiRequest, res: NextApiResponse) {
   const msg = {
-    to: 'odontosos@odontosos.com.br', // Change to your recipient
-    from: 'odontosos24horas@gmail.com', // Change to your verified sender
+    to: 'odontosos24horas@gmail.com',
+    from: 'odontosos24horas@gmail.com',
     subject: `[Lead vindo do website] : ${req.body.subject}`,
     text: `${req.body.fullname}`,
     html: `<strong>${req.body.email}: ${req.body.message}</strong>`
