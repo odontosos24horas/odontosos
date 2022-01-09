@@ -99,11 +99,6 @@ export const nextTechnologyItems = [
     height: 99
   },
   {
-    image: '/images/logos/logo_belo_dente.png',
-    width: 122,
-    height: 147
-  },
-  {
     image: '/images/logos/logo_bradesco.png',
     width: 168,
     height: 105
@@ -147,11 +142,6 @@ export const nextTechnologyItems = [
     image: '/images/logos/logo_porto_saude.png',
     width: 160,
     height: 84
-  },
-  {
-    image: '/images/logos/logo_rede_dental.png',
-    width: 319,
-    height: 167
   },
   {
     image: '/images/logos/logo_rede_odonto.png',
