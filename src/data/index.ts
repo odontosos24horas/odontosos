@@ -192,6 +192,11 @@ export const nextTechnologyItems = [
     image: '/images/logos/logo_goldencross.png',
     width: 300,
     height: 90
+  },
+  {
+    image: '/images/logos/logo_trt.png',
+    width: 300,
+    height: 106
   }
 ]
 
