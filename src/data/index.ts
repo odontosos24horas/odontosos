@@ -187,6 +187,11 @@ export const nextTechnologyItems = [
     image: '/images/logos/logo_sulamericaodonto.png',
     width: 305,
     height: 160
+  },
+  {
+    image: '/images/logos/logo_goldencross.png',
+    width: 300,
+    height: 90
   }
 ]
 
