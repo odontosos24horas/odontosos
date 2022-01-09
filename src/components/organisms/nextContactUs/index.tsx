@@ -1,4 +1,5 @@
 import React, { useRef, useState } from 'react'
+import fs from 'fs'
 import { Field, Form, Formik } from 'formik'
 
 import { Box, Button, FormControl, FormErrorMessage, FormLabel, Input, useToast, Text } from '@chakra-ui/react'
@@ -42,15 +43,32 @@ const NextContactUs = () => {
     return error
   }
 
+  const handleValidationFile = (value: any) => {
+    let error = ''
+    if (!value) {
+      error = 'Arquivo é necessário'
+    }
+    return error
+  }
+
   const handleSubmit = async (values: any) => {
     if (handleValidationName(values.name) === '' && handleValidationEmail(values.email) === '' && handleValidationPhone(values.phone) === '') {
+      const attachment = fs.readFileSync(values.file).toString('base64')
       setButtonText('Enviando...')
       await fetch('/api/sendgrid', {
         body: JSON.stringify({
           email: values.email,
           fullname: values.name,
           subject: values.name,
-          message: `${values.email}: ${values.name} : ${values.phone}`
+          message: `${values.email}: ${values.name} : ${values.phone}`,
+          attachments: [
+            {
+              content: attachment,
+              filename: 'curriculo.pdf',
+              type: 'application/pdf',
+              disposition: 'attachment'
+            }
+          ]
         }),
         headers: {
           'Content-Type': 'application/json'
@@ -83,7 +101,8 @@ const NextContactUs = () => {
       initialValues={{
         name: '',
         email: '',
-        phone: ''
+        phone: '',
+        file: ''
       }}
       onSubmit={(values, actions) => {
         handleSubmit(values)
@@ -121,18 +140,20 @@ const NextContactUs = () => {
                   Telefone:
                 </FormLabel>
                 <Input {...field} id="phone" placeholder="(00) 00000-0000" bg="white" />
-                <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                <FormErrorMessage>{form.errors.phone}</FormErrorMessage>
               </FormControl>
             )}
           </Field>
-          <Field name="file" validate={handleValidationPhone}>
-            {({ form }: any) => (
-              <FormControl display='flex' mt={8} isInvalid={form.errors.phone && form.touched.phone}>
+          <Field name="file" validate={handleValidationFile}>
+            {({ field, form }: any) => (
+              <FormControl mt={8} isInvalid={form.errors.file && form.touched.file}>
                 <Button onClick={handleGetFile}>Adicione seu currículo</Button>
                 <Text ms={2} mt={3} color="white">
                   {fileText}
                 </Text>
                 <Input
+                  {...field}
+                  accept={'application/pdf'}
                   display="none"
                   id="getFile"
                   type="file"
@@ -143,7 +164,7 @@ const NextContactUs = () => {
                     inputRef.current = e
                   }}
                 />
-                <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                <FormErrorMessage>{form.errors.file}</FormErrorMessage>
               </FormControl>
             )}
           </Field>
