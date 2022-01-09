@@ -165,38 +165,38 @@ export const nextTechnologyItems = [
   },
   {
     image: '/images/logos/logo_unna.png',
-    width: 100,
-    height: 95
+    width: 198,
+    height: 189
   },
   {
     image: '/images/logos/logo_bacen.png',
-    width: 100,
-    height: 95
+    width: 300,
+    height: 200
   },
   {
     image: '/images/logos/logo_hapvida.png',
-    width: 100,
-    height: 95
+    width: 227,
+    height: 152
   },
   {
     image: '/images/logos/logo_interodonto.png',
-    width: 100,
-    height: 95
+    width: 300,
+    height: 170
   },
   {
     image: '/images/logos/logo_unimedodonto.png',
-    width: 100,
-    height: 95
+    width: 300,
+    height: 143
   },
   {
     image: '/images/logos/logo_primavida.png',
-    width: 100,
-    height: 95
+    width: 263,
+    height: 187
   },
   {
     image: '/images/logos/logo_sulamericaodonto.png',
-    width: 100,
-    height: 95
+    width: 305,
+    height: 160
   }
 ]
 
