@@ -52,7 +52,7 @@ const NextContactUs = () => {
   }
 
   const handleSubmit = async (values: any) => {
-    if (handleValidationName(values.name) === '' && handleValidationEmail(values.email) === '' && handleValidationPhone(values.phone) === '') {
+    if (handleValidationName(values.name) === '' && handleValidationEmail(values.email) === '' && handleValidationPhone(values.phone) === '' && handleValidationFile(values.file) === '') {
       const attachment = fs.readFileSync(values.file).toString('base64')
       setButtonText('Enviando...')
       await fetch('/api/sendgrid', {
@@ -144,7 +144,7 @@ const NextContactUs = () => {
               </FormControl>
             )}
           </Field>
-          <Field name="file" validate={handleValidationFile}>
+          <Field name="getFile" validate={handleValidationFile}>
             {({ field, form }: any) => (
               <FormControl mt={8} isInvalid={form.errors.file && form.touched.file}>
                 <Button onClick={handleGetFile}>Adicione seu currículo</Button>
@@ -153,12 +153,10 @@ const NextContactUs = () => {
                 </Text>
                 <Input
                   {...field}
+                  type={'file'}
                   accept={'application/pdf'}
-                  display="none"
-                  id="getFile"
-                  type="file"
-                  name="arquivo"
-                  bg="white"
+                  id='getFile'
+                  hidden
                   onChange={handleGetFile}
                   ref={(e) => {
                     inputRef.current = e
