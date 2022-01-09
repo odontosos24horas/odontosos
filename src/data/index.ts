@@ -99,11 +99,6 @@ export const nextTechnologyItems = [
     height: 99
   },
   {
-    image: '/images/logos/logo_belo_dente.png',
-    width: 122,
-    height: 147
-  },
-  {
     image: '/images/logos/logo_bradesco.png',
     width: 168,
     height: 105
@@ -149,11 +144,6 @@ export const nextTechnologyItems = [
     height: 84
   },
   {
-    image: '/images/logos/logo_rede_dental.png',
-    width: 319,
-    height: 167
-  },
-  {
     image: '/images/logos/logo_rede_odonto.png',
     width: 183,
     height: 238
@@ -165,8 +155,48 @@ export const nextTechnologyItems = [
   },
   {
     image: '/images/logos/logo_unna.png',
-    width: 100,
-    height: 95
+    width: 198,
+    height: 189
+  },
+  {
+    image: '/images/logos/logo_bacen.png',
+    width: 300,
+    height: 200
+  },
+  {
+    image: '/images/logos/logo_hapvida.png',
+    width: 227,
+    height: 152
+  },
+  {
+    image: '/images/logos/logo_interodonto.png',
+    width: 300,
+    height: 170
+  },
+  {
+    image: '/images/logos/logo_unimedodonto.png',
+    width: 300,
+    height: 143
+  },
+  {
+    image: '/images/logos/logo_primavida.png',
+    width: 263,
+    height: 187
+  },
+  {
+    image: '/images/logos/logo_sulamericaodonto.png',
+    width: 305,
+    height: 160
+  },
+  {
+    image: '/images/logos/logo_goldencross.png',
+    width: 300,
+    height: 90
+  },
+  {
+    image: '/images/logos/logo_trt.png',
+    width: 300,
+    height: 106
   }
 ]
 

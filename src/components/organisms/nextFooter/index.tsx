@@ -36,7 +36,7 @@ const NextFooter = () => {
             spacing={8}>
             <Stack spacing={6}>
               <Box>
-                <Image src="/images/logos/logo_nextime.svg" alt="NeXTIME Logo" width={261} height={48} />
+                <Image src="/images/logos/logo_nextime.svg" alt="Odonto S.O.S Logo" width={261} height={48} />
               </Box>
               <Text fontSize={'sm'}>
               © 2021 Odonto SOS. Todos os direitos reservados.
