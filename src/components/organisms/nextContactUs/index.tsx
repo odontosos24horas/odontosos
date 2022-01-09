@@ -1,14 +1,22 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import { Field, Form, Formik } from 'formik'
 
-import { Box, FormControl, FormErrorMessage, FormLabel, Input, useToast } from '@chakra-ui/react'
+import { Box, Button, FormControl, FormErrorMessage, FormLabel, Input, useToast, Text } from '@chakra-ui/react'
 import NextButton from '../../atoms/nextButton'
 
 const NextContactUs = () => {
+  const [fileText, setFileText] = useState<string>('Arquivo deve estar em pdf')
+  const inputRef = useRef<HTMLInputElement | null>(null)
   const toast = useToast()
 
-  //   Setting button text
   const [buttonText, setButtonText] = useState('Enviar contato')
+
+  const handleGetFile = () => {
+    inputRef.current?.click()
+    if (inputRef.current?.files && inputRef.current?.files[0]) {
+      setFileText(inputRef.current?.files[0].name)
+    }
+  }
 
   const handleValidationName = (value: any) => {
     let error = ''
@@ -82,41 +90,65 @@ const NextContactUs = () => {
         actions.setSubmitting(false)
       }}
     >
-      {(props) => (
+      {props => (
         <Form>
-          <Field name='name' validate={handleValidationName}>
+          <Field name="name" validate={handleValidationName}>
             {({ field, form }: any) => (
               <FormControl isInvalid={form.errors.name && form.touched.name}>
-                <FormLabel htmlFor='name' color='white'>Nome:</FormLabel>
-                <Input {...field} id='name' placeholder='nome' bg='white' />
+                <FormLabel htmlFor="name" color="white">
+                  Nome:
+                </FormLabel>
+                <Input {...field} id="name" placeholder="nome" bg="white" />
                 <FormErrorMessage>{form.errors.name}</FormErrorMessage>
               </FormControl>
             )}
           </Field>
-          <Field name='email' validate={handleValidationEmail}>
+          <Field name="email" validate={handleValidationEmail}>
             {({ field, form }: any) => (
               <FormControl mt={4} isInvalid={form.errors.email && form.touched.email}>
-                <FormLabel htmlFor='email' color='white'>E-mail:</FormLabel>
-                <Input {...field} id='email' placeholder='seu melhor e-mail' bg='white' />
+                <FormLabel htmlFor="email" color="white">
+                  E-mail:
+                </FormLabel>
+                <Input {...field} id="email" placeholder="seu melhor e-mail" bg="white" />
                 <FormErrorMessage>{form.errors.email}</FormErrorMessage>
               </FormControl>
             )}
           </Field>
-          <Field name='phone' validate={handleValidationPhone}>
+          <Field name="phone" validate={handleValidationPhone}>
             {({ field, form }: any) => (
               <FormControl mt={4} isInvalid={form.errors.phone && form.touched.phone}>
-                <FormLabel htmlFor='phone' color='white'>Telefone:</FormLabel>
-                <Input {...field} id='phone' placeholder='(00) 00000-0000' bg='white' />
+                <FormLabel htmlFor="phone" color="white">
+                  Telefone:
+                </FormLabel>
+                <Input {...field} id="phone" placeholder="(00) 00000-0000" bg="white" />
                 <FormErrorMessage>{form.errors.email}</FormErrorMessage>
               </FormControl>
             )}
           </Field>
-          <Box mt={4}>
-            <NextButton
-              bg='next-dark'
-              isLoading={props.isSubmitting}
-              type='submit'
-            >
+          <Field name="file" validate={handleValidationPhone}>
+            {({ form }: any) => (
+              <FormControl display='flex' mt={8} isInvalid={form.errors.phone && form.touched.phone}>
+                <Button onClick={handleGetFile}>Adicione seu currículo</Button>
+                <Text ms={2} mt={3} color="white">
+                  {fileText}
+                </Text>
+                <Input
+                  display="none"
+                  id="getFile"
+                  type="file"
+                  name="arquivo"
+                  bg="white"
+                  onChange={handleGetFile}
+                  ref={(e) => {
+                    inputRef.current = e
+                  }}
+                />
+                <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+              </FormControl>
+            )}
+          </Field>
+          <Box mt={8}>
+            <NextButton bg="next-dark" isLoading={props.isSubmitting} type="submit">
               {buttonText}
             </NextButton>
           </Box>
