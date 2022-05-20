@@ -191,7 +191,7 @@ const MobileNav = () => {
       {NAV_ITEMS.map((navItem) => (
         <MobileNavItem key={navItem.label} {...navItem} />
       ))}
-      <NextLink href={'tel:3135860900'}>
+      <NextLink href={'tel:03135860900'}>
         <a>
           <Heading mt={8} color="white" size="lg">
             (31) 3586-0900
@@ -227,7 +227,7 @@ const NextHeader = () => {
 
           <Flex flex={{ base: 1 }}justify={{ base: 'center' }}>
             <Box display={{ base: 'none', md: 'block' }}>
-              <NextLink href={'tel:3135860900'}>
+              <NextLink href={'tel:03135860900'}>
                 <a>
                   <Heading color="next-primary" size="lg">
                     (31) 3586-0900

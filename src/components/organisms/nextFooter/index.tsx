@@ -65,7 +65,7 @@ const NextFooter = () => {
               <Link href={'https://instagram.com/clinicaodontososbh'}>Instagram</Link>
             </Stack>
             <Stack align={'flex-start'}>
-              <Link href={'tel:3135860900'}>
+              <Link href={'tel:03135860900'}>
                 <Heading color="next-primary" size="lg">
                   (31) 3586-0900
                 </Heading>
