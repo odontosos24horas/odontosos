@@ -24,7 +24,7 @@ const NextTemplateHome = ({
   return (
     <NextLayout>
       <NextHero />
-      <Box pt={{ base: 10, md: 0 }} pb={{ base: 20 }}>
+      {/* <Box pt={{ base: 10, md: 0 }} pb={{ base: 20 }}>
         <NextCallToAction
           id={'quemsomos'}
           title={nextCallToActionItems[0].title}
@@ -37,7 +37,7 @@ const NextTemplateHome = ({
           url={nextCallToActionItems[0].url}
           content={nextCallToActionItems[0].content}
         />
-      </Box>
+      </Box> */}
       <Box pb={{ base: 20 }}>
         <NextCallToAction
           id={'urgencias'}

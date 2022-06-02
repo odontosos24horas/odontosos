@@ -87,11 +87,11 @@ const NextCallToAction = ({
             height={height}
           />
         )}
-        {content === 'map' && (
+        {/* {content === 'map' && (
           <Suspense fallback={() => 'loading'}>
             <NextMap />
           </Suspense>
-        )}
+        )} */}
       </Flex>
     </Stack>
   )
