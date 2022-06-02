@@ -49,7 +49,7 @@ export const nextCallToActionItems = [
   },
   {
     title: 'VEJA COMO CHEGAR',
-    text: 'Estamos localizados na rua Cláudio Manoel, 223 - Funcionários - Belo Horizonte - Minas Gerais.  Confira nossa localização no mapa e calcule sua rota.',
+    text: 'Estamos localizados na rua Cláudio Manoel, 223 - Funcionários - Belo Horizonte - Minas Gerais.',
     textButton: '(31) 3586-0900',
     url: 'tel:03135860900',
     width: 595,
