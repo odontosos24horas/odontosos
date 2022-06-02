@@ -42,7 +42,16 @@ const NextHero = () => {
           as={Box}
           textAlign={'center'}
           spacing={{ base: 8, md: 14 }}
-          py={{ base: 20, md: 36 }}>
+          pb={{ base: 20, md: 36 }}>
+          <Box display={{ base: 'block', md: 'none' }}>
+            <Link href={'tel:03135860900'}>
+              <a>
+                <Heading color="next-primary" size="xl">
+                (31) 3586-0900
+                </Heading>
+              </a>
+            </Link>
+          </Box>
           <Heading
             fontWeight={600}
             fontSize={{ base: '3xl', sm: '5xl', md: '6xl' }}
@@ -96,7 +105,7 @@ const NextHero = () => {
                   right={'-125px'}
                   top={'-15px'}
                   transform={'rotate(10deg)'}>
-                Nosso WhatsApp
+                  Nosso WhatsApp
                 </Text>
               </Box>
             </Hide>
