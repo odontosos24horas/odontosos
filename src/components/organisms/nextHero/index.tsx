@@ -70,16 +70,18 @@ const NextHero = () => {
             align={'center'}
             alignSelf={'center'}
             position={'relative'}>
-            <Button
-              colorScheme={'green'}
-              bg={'green.400'}
-              rounded={'full'}
-              px={6}
-              _hover={{
-                bg: 'green.500'
-              }}>
-              Deixa a gente te ajudar
-            </Button>
+            <Link href={'tel:03135860900'}>
+              <Button
+                colorScheme={'green'}
+                bg={'green.400'}
+                rounded={'full'}
+                px={6}
+                _hover={{
+                  bg: 'green.500'
+                }}>
+                Deixa a gente te ajudar
+              </Button>
+            </Link>
             <Link href={'#urgencias'}>
               <a>
                 <Button variant={'link'} colorScheme={'blue'} size={'sm'}>
@@ -105,7 +107,7 @@ const NextHero = () => {
                   right={'-125px'}
                   top={'-15px'}
                   transform={'rotate(10deg)'}>
-                  Nosso WhatsApp
+                  Nosso Telefone
                 </Text>
               </Box>
             </Hide>
