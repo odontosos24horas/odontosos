@@ -23,7 +23,7 @@ const NextTemplateHome = ({
 }: NextTemplateHomeProps) => {
   return (
     <NextLayout>
-      <NextHero />
+      {/* <NextHero /> */}
       {/* <Box pt={{ base: 10, md: 0 }} pb={{ base: 20 }}>
         <NextCallToAction
           id={'quemsomos'}
