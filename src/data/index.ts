@@ -31,9 +31,9 @@ export const nextCallToActionItems = [
   {
     title: 'URGÊNCIAS ODONTOLÓGICAS',
     text: 'O QUE VEM A SER URGÊNCIA ODONTOLÓGICA? É todo aquele procedimento que necessita de atendimento imediato para minimizar o sofrimento do paciente. Para posteriormente, em um adequado momento, procurar o seu dentista e solucionar o problema em definitivo.',
-    image: '/images/home/urgencias.jpg',
-    textButton: 'VEJA COMO CHEGAR',
-    url: '#comochegar',
+    image: '/images/home/image_left.png',
+    textButton: '(31) 3586-0900',
+    url: 'tel:03135860900',
     width: 720,
     height: 535,
     directionMd: 'row-reverse',
@@ -43,7 +43,7 @@ export const nextCallToActionItems = [
     title: 'TRABALHE CONOSCO',
     width: 595,
     height: 528,
-    image: '/images/home/image_left.png',
+    image: '/images/home/urgencias.jpg',
     directionMd: 'row-reverse',
     content: 'form'
   },
