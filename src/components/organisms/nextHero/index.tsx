@@ -44,10 +44,10 @@ const NextHero = () => {
           spacing={{ base: 8, md: 14 }}
           pb={{ base: 20, md: 36 }}>
           <Box display={{ base: 'block', md: 'none' }}>
-            <Link href={'tel:03135860900'}>
+            <Link href={'tel:03136570600'}>
               <a>
                 <Heading color="next-primary" size="xl">
-                (31) 3586-0900
+                (31) 3657-0600
                 </Heading>
               </a>
             </Link>
@@ -70,7 +70,7 @@ const NextHero = () => {
             align={'center'}
             alignSelf={'center'}
             position={'relative'}>
-            <Link href={'tel:03135860900'}>
+            <Link href={'tel:03136570600'}>
               <Button
                 colorScheme={'green'}
                 bg={'green.400'}
