@@ -2,10 +2,10 @@ import Head from 'next/head'
 import React, { PropsWithChildren } from 'react'
 import NextHeader from '../../organisms/nextHeader'
 import NextFooter from '../../organisms/nextFooter'
-import { Box } from '@chakra-ui/react'
-import NextWhatsIcon from '../../atoms/nextWhatsIcon'
-import Link from 'next/link'
-import { nextSocialNetwork } from '../../../data'
+// import { Box } from '@chakra-ui/react'
+// import NextWhatsIcon from '../../atoms/nextWhatsIcon'
+// import Link from 'next/link'
+// import { nextSocialNetwork } from '../../../data'
 
 type Props = {
   title?: string
