@@ -36,7 +36,7 @@ const NextLayout = ({
         <NextFooter />
       </footer>
 
-      <Box
+      {/* <Box
         position="fixed"
         width="60px"
         height="60px"
@@ -49,7 +49,7 @@ const NextLayout = ({
             <NextWhatsIcon />
           </a>
         </Link>
-      </Box>
+      </Box> */}
     </>
   )
 }
