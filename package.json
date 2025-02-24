@@ -1,18 +1,20 @@
 {
   "name": "odontosos",
   "version": "0.16.1",
+  "engines": {
+    "node": ">=22"
+  },
+  "packageManager": "pnpm@10.4.1",
   "private": true,
   "license": "MIT",
   "scripts": {
-    "dev": "next dev",
-    "mdev": "next dev -H 192.168.0.6",
-    "build": "next build",
-    "start": "next start",
+    "dev": "NODE_OPTIONS=--openssl-legacy-provider next dev",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider next build",
+    "start": "NODE_OPTIONS=--openssl-legacy-provider next start",
     "lint": "eslint --fix .",
-    "precommit": "yarn lint",
+    "precommit": "pnpm lint",
     "commit": "cz",
-    "prepush": "git diff HEAD --quiet && git fetch && git pull origin main && yarn precommit && yarn && yarn build",
-    "go": "yarn prepush && yarn dev",
+    "prepush": "git diff HEAD --quiet && git fetch && git pull origin main && pnpm precommit && pnpm install && pnpm build",
     "prepare": "husky install",
     "postinstall": "husky install"
   },
