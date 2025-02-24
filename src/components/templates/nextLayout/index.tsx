@@ -1,11 +1,11 @@
+import { Box } from '@chakra-ui/react'
 import Head from 'next/head'
-import React, { PropsWithChildren } from 'react'
-import NextHeader from '../../organisms/nextHeader'
+import Link from 'next/link'
+import { PropsWithChildren } from 'react'
+import { nextSocialNetwork } from '../../../data'
+import NextWhatsIcon from '../../atoms/nextWhatsIcon'
 import NextFooter from '../../organisms/nextFooter'
-// import { Box } from '@chakra-ui/react'
-// import NextWhatsIcon from '../../atoms/nextWhatsIcon'
-// import Link from 'next/link'
-// import { nextSocialNetwork } from '../../../data'
+import NextHeader from '../../organisms/nextHeader'
 
 type Props = {
   title?: string
@@ -36,7 +36,7 @@ const NextLayout = ({
         <NextFooter />
       </footer>
 
-      {/* <Box
+      <Box
         position="fixed"
         width="60px"
         height="60px"
@@ -49,7 +49,7 @@ const NextLayout = ({
             <NextWhatsIcon />
           </a>
         </Link>
-      </Box> */}
+      </Box>
     </>
   )
 }

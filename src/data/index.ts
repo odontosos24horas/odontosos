@@ -1,5 +1,5 @@
-import { NextCallToActionProps } from '../components/organisms/nextCallToAction'
 import { NextFeatureProps } from '../components/molecules/nextFeature'
+import { NextCallToActionProps } from '../components/organisms/nextCallToAction'
 
 const number = '5531995830442'
 
