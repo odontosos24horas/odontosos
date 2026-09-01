@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import AnoAtual from './AnoAtual'
 import {
   EMAIL,
   ENDERECO,
@@ -12,7 +13,6 @@ import {
 } from '@/content/clinica'
 
 export default function Footer() {
-  const ano = new Date().getFullYear()
   const mailtoCurriculo = `mailto:${EMAIL}?subject=${encodeURIComponent(
     TRABALHE_CONOSCO.assunto
   )}`
@@ -135,7 +135,9 @@ export default function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-3 border-t border-white/15 pt-6 text-sm text-white/60 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {ano} Odonto SOS. Todos os direitos reservados.</p>
+          <p>
+            © <AnoAtual /> Odonto SOS. Todos os direitos reservados.
+          </p>
           <a
             href="/politica-de-privacidade"
             className="inline-flex min-h-11 items-center hover:text-white hover:underline"
