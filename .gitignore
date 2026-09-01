@@ -17,3 +17,6 @@ package-lock.json
 
 # Lighthouse
 .lh-report
+
+# TypeScript
+*.tsbuildinfo
