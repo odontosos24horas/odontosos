@@ -22,14 +22,18 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-12">
         <div className="grid gap-10 md:grid-cols-4">
           <div className="md:col-span-2">
-            <Image
-              src="/images/logos/logo_sos_header.png"
-              alt="Odonto SOS"
-              width={278}
-              height={40}
-              loading="lazy"
-              className="h-9 w-auto brightness-0 invert"
-            />
+            {/* Fundo claro em vez de filtro: o logo é verde + vermelho, e
+                `brightness-0 invert` transformava tudo em manchas brancas. */}
+            <span className="inline-flex rounded-md bg-white px-3 py-2">
+              <Image
+                src="/images/logos/logo_sos_header.png"
+                alt="Odonto SOS"
+                width={278}
+                height={40}
+                loading="lazy"
+                className="h-8 w-auto"
+              />
+            </span>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
               Clínica de urgência odontológica com atendimento 24 horas, todos
               os dias, em {ENDERECO.cidade}.

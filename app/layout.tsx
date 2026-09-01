@@ -7,6 +7,7 @@ import {
   ENDERECO,
   FAQ,
   INSTAGRAM,
+  PERFIL_GOOGLE,
   SITE_URL,
   TELEFONE_E164
 } from '@/content/clinica'
@@ -95,7 +96,9 @@ const jsonLdNegocio = {
       name: `Atendimento de urgência para o convênio ${c.nome}`
     }
   })),
-  sameAs: [INSTAGRAM]
+  // Filtra vazios: o Perfil da Empresa no Google entra assim que o link for
+  // preenchido em content/clinica.ts.
+  sameAs: [INSTAGRAM, PERFIL_GOOGLE].filter(Boolean)
 }
 
 /** FAQPage gerado do MESMO array que renderiza a seção visível. */

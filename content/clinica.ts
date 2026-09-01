@@ -18,6 +18,17 @@ export const WHATSAPP_URL =
 export const EMAIL = 'odontosos@odontosos.com.br'
 export const INSTAGRAM = 'https://www.instagram.com/clinicaodontososbh'
 
+/**
+ * Perfil da Empresa no Google.
+ *
+ * PENDENTE DANILO: colar aqui o link curto do perfil (formato
+ * https://g.page/... ou https://maps.app.goo.gl/...). Enquanto vazio, é
+ * omitido do `sameAs` do JSON-LD — declarar URL errada é pior que não
+ * declarar, porque o Google usa esse campo para confirmar que o site e o
+ * perfil são a mesma empresa.
+ */
+export const PERFIL_GOOGLE = ''
+
 export const SITE_URL = 'https://www.odontosos.com.br'
 
 export const ENDERECO = {
@@ -62,6 +73,31 @@ export const URGENCIAS = {
   titulo: 'Urgências odontológicas',
   texto:
     'Urgência odontológica é todo procedimento que precisa de atendimento imediato para aliviar o sofrimento do paciente. O objetivo é estabilizar o quadro na hora e, em um momento adequado, permitir que você procure o seu dentista para resolver o problema em definitivo.'
+} as const
+
+/**
+ * Fotos reais da clínica, recuperadas do site anterior e otimizadas
+ * (1,4 MB → 220 KB e 8,2 MB → 260 KB).
+ *
+ * As outras duas imagens do site antigo eram de banco de imagens (um raio-X e
+ * uma bandeja de instrumentos) e foram descartadas: o cliente pediu
+ * explicitamente para não usar imagem genérica.
+ *
+ * PENDENTE DANILO: enviar foto da FACHADA, que não existe no acervo atual.
+ */
+export const FOTOS = {
+  consultorio: {
+    src: '/images/clinica/consultorio.jpg',
+    alt: 'Consultório odontológico da Odonto SOS, com cadeira e equipamentos para atendimento de urgência',
+    width: 1440,
+    height: 1070
+  },
+  recepcao: {
+    src: '/images/clinica/recepcao.jpg',
+    alt: 'Recepção da Odonto SOS em Belo Horizonte, com balcão de atendimento e sala de espera',
+    width: 1440,
+    height: 973
+  }
 } as const
 
 export const SITUACOES = [
