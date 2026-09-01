@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import {
+  FOTOS,
   HERO,
   TELEFONE_E164,
   TELEFONE_EXIBICAO,
@@ -7,62 +9,81 @@ import {
 import { IconePhone, IconeWhatsapp } from './Icones'
 
 /**
- * Primeira tela.
+ * Primeira tela, seguindo a arte enviada pelo cliente.
  *
  * Todo o conteúdo é texto real em HTML — nada de imagem única com texto
- * dentro —, para que Google e ferramentas de IA consigam ler. Este é o único
- * H1 da página.
+ * dentro —, para que Google e ferramentas de IA consigam ler. Este é o
+ * único H1 da página.
+ *
+ * Detalhes que vêm da arte, não de preferência: subtítulo em peso normal
+ * (não negrito), régua fina separando subtítulo e parágrafo, botões de
+ * largura total com cantos arredondados (não pílula), "LIGUE AGORA" acima
+ * do telefone em duas linhas, e a foto do consultório fechando a seção.
  */
 export default function Hero() {
   return (
     <section className="bg-sos-light/40">
-      <div className="mx-auto max-w-6xl px-4 py-10 md:py-16">
-        <p className="mb-3 inline-flex items-center gap-2 rounded-full bg-sos-primary/10 px-3 py-1 text-sm font-semibold text-sos-primary">
-          <span
-            aria-hidden="true"
-            className="h-2 w-2 rounded-full bg-sos-primary"
-          />
-          Atendimento agora — 24 horas, todos os dias
-        </p>
+      <div className="mx-auto max-w-6xl px-4 pt-8 md:pt-12">
+        <div className="lg:max-w-3xl">
+          <h1 className="text-[2rem] font-extrabold uppercase leading-[1.05] tracking-tight text-sos-primary sm:text-5xl">
+            {HERO.h1}
+          </h1>
 
-        <h1 className="text-3xl font-extrabold uppercase leading-tight tracking-tight text-sos-primary sm:text-4xl lg:text-5xl">
-          {HERO.h1}
-        </h1>
+          <p className="mt-5 max-w-2xl text-lg leading-snug text-sos-dark sm:text-xl">
+            {HERO.subtitulo}
+          </p>
 
-        <p className="mt-4 max-w-2xl text-lg font-semibold text-sos-dark sm:text-xl">
-          {HERO.subtitulo}
-        </p>
+          <hr className="mt-6 max-w-md border-0 border-t border-sos-primary/25" />
 
-        <p className="mt-4 max-w-2xl text-base leading-relaxed text-sos-gray sm:text-lg">
-          {HERO.texto}
-        </p>
+          <p className="mt-6 max-w-2xl text-base leading-relaxed text-sos-gray sm:text-lg">
+            {HERO.texto}
+          </p>
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
-          <a
-            href={`tel:${TELEFONE_E164}`}
-            data-evento="click_ligar"
-            data-origem="hero"
-            className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-sos-primary px-7 text-lg font-bold text-white shadow-sm hover:bg-sos-primary-dark"
-          >
-            <IconePhone className="h-6 w-6" />
-            <span>
-              Ligue agora
-              <span className="ml-2 font-extrabold">{TELEFONE_EXIBICAO}</span>
-            </span>
-          </a>
+          <div className="mt-8 flex flex-col gap-3 sm:max-w-lg">
+            <a
+              href={`tel:${TELEFONE_E164}`}
+              data-evento="click_ligar"
+              data-origem="hero"
+              className="flex min-h-16 items-center justify-center gap-3 rounded-xl bg-sos-primary px-6 text-white shadow-sm hover:bg-sos-primary-dark"
+            >
+              <IconePhone className="h-7 w-7 shrink-0" />
+              <span className="text-center leading-tight">
+                <span className="block text-lg font-extrabold uppercase tracking-wide">
+                  Ligue agora
+                </span>
+                <span className="block text-lg font-bold">
+                  {TELEFONE_EXIBICAO}
+                </span>
+              </span>
+            </a>
 
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            data-evento="click_whatsapp"
-            data-origem="hero"
-            className="inline-flex min-h-14 items-center justify-center gap-3 rounded-full border-2 border-sos-primary px-7 text-lg font-bold text-sos-primary hover:bg-sos-primary hover:text-white"
-          >
-            <IconeWhatsapp className="h-6 w-6" />
-            WhatsApp
-          </a>
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              data-evento="click_whatsapp"
+              data-origem="hero"
+              className="flex min-h-14 items-center justify-center gap-3 rounded-xl border-2 border-sos-primary px-6 text-lg font-extrabold uppercase tracking-wide text-sos-primary hover:bg-sos-primary hover:text-white"
+            >
+              <IconeWhatsapp className="h-6 w-6 shrink-0" />
+              WhatsApp
+            </a>
+          </div>
         </div>
+      </div>
+
+      {/* Foto fechando a primeira tela, como na arte. `priority` porque é a
+          maior imagem acima da dobra — é ela que define o LCP. */}
+      <div className="mt-10">
+        <Image
+          src={FOTOS.consultorio.src}
+          alt={FOTOS.consultorio.alt}
+          width={FOTOS.consultorio.width}
+          height={FOTOS.consultorio.height}
+          priority
+          sizes="100vw"
+          className="h-56 w-full object-cover sm:h-72 lg:h-96"
+        />
       </div>
     </section>
   )

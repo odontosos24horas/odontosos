@@ -59,21 +59,24 @@ function BlocoComFoto({
 
 export function Urgencias() {
   return (
-    <BlocoComFoto id="urgencias" foto={FOTOS.consultorio}>
-      <TituloSecao>{URGENCIAS.titulo}</TituloSecao>
-      <p className="mt-5 text-base leading-relaxed text-sos-gray sm:text-lg">
-        {URGENCIAS.texto}
-      </p>
-      <a
-        href={`tel:${TELEFONE_E164}`}
-        data-evento="click_ligar"
-        data-origem="urgencias"
-        className="mt-6 inline-flex min-h-13 items-center gap-2 rounded-full bg-sos-primary px-6 py-3 text-base font-bold text-white hover:bg-sos-primary-dark"
-      >
-        <IconePhone className="h-5 w-5" />
-        {TELEFONE_EXIBICAO}
-      </a>
-    </BlocoComFoto>
+    <section id="urgencias" className="scroll-mt-20 border-t border-sos-light">
+      <div className="mx-auto max-w-6xl px-4 py-12 md:py-16">
+        <TituloSecao>{URGENCIAS.titulo}</TituloSecao>
+        <p className="mt-5 max-w-3xl text-base leading-relaxed text-sos-gray sm:text-lg">
+          {URGENCIAS.texto}
+        </p>
+        {/* A foto do consultório subiu para o hero, seguindo a arte do cliente. */}
+        <a
+          href={`tel:${TELEFONE_E164}`}
+          data-evento="click_ligar"
+          data-origem="urgencias"
+          className="mt-6 inline-flex min-h-13 items-center gap-2 rounded-full bg-sos-primary px-6 py-3 text-base font-bold text-white hover:bg-sos-primary-dark"
+        >
+          <IconePhone className="h-5 w-5" />
+          {TELEFONE_EXIBICAO}
+        </a>
+      </div>
+    </section>
   )
 }
 
