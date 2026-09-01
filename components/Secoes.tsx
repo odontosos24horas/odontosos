@@ -150,14 +150,18 @@ export function Convenios() {
               key={convenio.nome}
               className="flex flex-col items-center gap-3"
             >
-              <div className="flex h-16 w-full items-center justify-center">
+              {/* Caixa de altura fixa normaliza logos de proporções muito
+                  diferentes; a altura acompanha a tela para não deixar as
+                  marcas pequenas demais no desktop, como ficaram na
+                  primeira versão. */}
+              <div className="flex h-20 w-full items-center justify-center sm:h-24">
                 <Image
                   src={convenio.logo}
                   alt={`Logo do convênio ${convenio.nome}`}
-                  width={160}
-                  height={64}
+                  width={200}
+                  height={96}
                   loading="lazy"
-                  className="max-h-16 w-auto object-contain"
+                  className="max-h-20 w-auto max-w-full object-contain sm:max-h-24"
                 />
               </div>
               {/* O nome também como texto: o Google não lê logo em imagem. */}

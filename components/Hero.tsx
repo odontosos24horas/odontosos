@@ -9,33 +9,34 @@ import {
 import { IconePhone, IconeWhatsapp } from './Icones'
 
 /**
- * Primeira tela, seguindo a arte enviada pelo cliente.
+ * Primeira tela.
  *
  * Todo o conteúdo é texto real em HTML — nada de imagem única com texto
  * dentro —, para que Google e ferramentas de IA consigam ler. Este é o
  * único H1 da página.
  *
- * Detalhes que vêm da arte, não de preferência: subtítulo em peso normal
- * (não negrito), régua fina separando subtítulo e parágrafo, botões de
- * largura total com cantos arredondados (não pílula), "LIGUE AGORA" acima
- * do telefone em duas linhas, e a foto do consultório fechando a seção.
+ * A arte enviada pelo cliente é de celular, e no celular ela é seguida à
+ * risca: subtítulo em peso normal, régua fina, botões de largura total com
+ * cantos arredondados, "LIGUE AGORA" acima do telefone, e a foto fechando
+ * a seção. No desktop a mesma composição vira duas colunas — empilhar
+ * deixaria metade da tela vazia ao lado de um texto estreito.
  */
 export default function Hero() {
   return (
     <section className="bg-sos-light/40">
-      <div className="mx-auto max-w-6xl px-4 pt-8 md:pt-12">
-        <div className="lg:max-w-3xl">
+      <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-8 lg:grid-cols-2 lg:gap-12 lg:py-14">
+        <div>
           <h1 className="text-[2rem] font-extrabold uppercase leading-[1.05] tracking-tight text-sos-primary sm:text-5xl">
             {HERO.h1}
           </h1>
 
-          <p className="mt-5 max-w-2xl text-lg leading-snug text-sos-dark sm:text-xl">
+          <p className="mt-5 text-lg leading-snug text-sos-dark sm:text-xl">
             {HERO.subtitulo}
           </p>
 
           <hr className="mt-6 max-w-md border-0 border-t border-sos-primary/25" />
 
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-sos-gray sm:text-lg">
+          <p className="mt-6 text-base leading-relaxed text-sos-gray sm:text-lg">
             {HERO.texto}
           </p>
 
@@ -70,20 +71,21 @@ export default function Hero() {
             </a>
           </div>
         </div>
-      </div>
 
-      {/* Foto fechando a primeira tela, como na arte. `priority` porque é a
-          maior imagem acima da dobra — é ela que define o LCP. */}
-      <div className="mt-10">
-        <Image
-          src={FOTOS.consultorio.src}
-          alt={FOTOS.consultorio.alt}
-          width={FOTOS.consultorio.width}
-          height={FOTOS.consultorio.height}
-          priority
-          sizes="100vw"
-          className="h-56 w-full object-cover sm:h-72 lg:h-96"
-        />
+        {/* `priority`: é a maior imagem acima da dobra, a que define o LCP.
+            No celular sai de ponta a ponta, como na arte; no desktop ocupa a
+            segunda coluna com altura controlada para não recortar demais. */}
+        <div className="-mx-4 mt-2 lg:mx-0 lg:mt-0">
+          <Image
+            src={FOTOS.consultorio.src}
+            alt={FOTOS.consultorio.alt}
+            width={FOTOS.consultorio.width}
+            height={FOTOS.consultorio.height}
+            priority
+            sizes="(max-width: 1024px) 100vw, 50vw"
+            className="h-56 w-full object-cover sm:h-72 lg:h-[26rem] lg:rounded-lg"
+          />
+        </div>
       </div>
     </section>
   )
