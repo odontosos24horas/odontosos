@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import {
   Flex,
   Stack,
@@ -41,15 +41,6 @@ const NextCallToAction = ({
   content,
   id
 }: NextCallToActionProps) => {
-  const [isFront, setIsFront] = useState(false)
-  useEffect(() => {
-    process.nextTick(() => {
-      if (globalThis.window ?? false) {
-        setIsFront(true)
-      }
-    })
-  }, [])
-  if (!isFront) return null
   return (
     <Stack id={id} bg={background ? 'next-primary' : ''} direction={{ base: directionBase, md: directionMd }}>
       <Flex px={{ base: 10 }} pt={content === 'form' ? 20 : 0} pb={{ base: 20, md: 0 }} flex={1} align={'center'} justify={'center'}>

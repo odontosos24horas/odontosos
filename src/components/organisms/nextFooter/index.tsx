@@ -36,10 +36,10 @@ const NextFooter = () => {
             spacing={8}>
             <Stack spacing={6}>
               <Box>
-                <Image src="/images/logos/logo_nextime.svg" alt="Odonto S.O.S Logo" width={261} height={48} />
+                <Image src="/images/logos/logo_sos_header.png" alt="Odonto SOS - clínica de urgência odontológica 24 horas em Belo Horizonte" width={261} height={38} />
               </Box>
               <Text fontSize={'sm'}>
-              © 2021 Odonto SOS. Todos os direitos reservados.
+              © {new Date().getFullYear()} Odonto SOS. Todos os direitos reservados.
               </Text>
               <Text>
                 Desenvolvido por:
@@ -65,13 +65,16 @@ const NextFooter = () => {
               <Link href={'https://instagram.com/clinicaodontososbh'}>Instagram</Link>
             </Stack>
             <Stack align={'flex-start'}>
-              <Link href={'tel:03136570600'}>
-                <Heading color="next-primary" size="lg">
-                  (31) 3657-0600
-                </Heading>
+              <Link href={'tel:+553136570600'}>
+                <a aria-label="Ligar para a Odonto SOS: (31) 3657-0600">
+                  <Heading color="next-primary" size="lg">
+                    (31) 3657-0600
+                  </Heading>
+                </a>
               </Link>
               <Text color="next-primary" fontSize="sm">
-                R. Cláudio Manoel, 223 - Funcionários
+                R. Cláudio Manoel, 223 - Funcionários<br />
+                Belo Horizonte - MG, 30140-100
               </Text>
             </Stack>
           </SimpleGrid>

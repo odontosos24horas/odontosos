@@ -14,8 +14,8 @@ type Props = {
 
 const NextLayout = ({
   children,
-  title = 'Dentista 24 horas BH | Urgência|ODONTO S.O.S|Emergência Odontológica',
-  description = 'Odonto SOS tem atendimentos 24 horas de urgência odontológica em BH e região metropolitana de Belo Horizonte. Oferece dentistas de plantão 24 horas na região da Savassi em BH.'
+  title = 'Dentista 24 horas em Belo Horizonte | Odonto SOS',
+  description = 'Atendimento odontológico de urgência 24 horas em Belo Horizonte, todos os dias, inclusive finais de semana e feriados. Entre em contato com a Odonto SOS.'
 }: PropsWithChildren<Props>) => {
   return (
     <>

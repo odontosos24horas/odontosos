@@ -1,13 +1,55 @@
 import React from 'react'
 import Document, { Head, Html, Main, NextScript } from 'next/document'
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Dentist',
+  name: 'Odonto SOS',
+  description: 'Clínica de urgência odontológica com atendimento 24 horas, todos os dias, em Belo Horizonte.',
+  url: 'https://www.odontosos.com.br/',
+  logo: 'https://www.odontosos.com.br/images/logos/logo_sos_header.png',
+  image: 'https://www.odontosos.com.br/images/logos/logo_sos_header.png',
+  telephone: '+553136570600',
+  email: 'odontosos@odontosos.com.br',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: 'Rua Cláudio Manoel, 223',
+    addressLocality: 'Belo Horizonte',
+    addressRegion: 'MG',
+    postalCode: '30140-100',
+    addressCountry: 'BR'
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: -19.935028,
+    longitude: -43.929663
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+      opens: '00:00',
+      closes: '23:59'
+    }
+  ],
+  areaServed: {
+    '@type': 'City',
+    name: 'Belo Horizonte'
+  },
+  sameAs: ['https://www.instagram.com/clinicaodontososbh']
+}
+
 export default class MyDocument extends Document {
   render(): JSX.Element {
     return (
-      <Html>
+      <Html lang="pt-BR">
         <Head>
-          <meta name="description" content="Odonto SOS tem atendimentos 24 horas de urgência odontológica em BH e região metropolitana de Belo Horizonte. Oferece dentistas de plantão 24 horas na região da Savassi em BH." />
-          <meta name="keywords" content="urgência odontológica, dentista 24 horas, dentista 24 horas BH, dentista de plantão 24 horas, plantão odontológico, odontologia 24 horas, clínica dentária 24 horas, dentista atendimento 24 horas, dentista emergência" />
           <link rel="icon" href="/favicon.png" />
+          <link rel="canonical" href="https://www.odontosos.com.br/" />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          />
           <script async src="https://www.googletagmanager.com/gtag/js?id=AW-987120152" />
           <script
             dangerouslySetInnerHTML={{
@@ -16,13 +58,6 @@ export default class MyDocument extends Document {
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', 'AW-987120152');
-            `
-            }}
-          />
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-              gtag('event', 'conversion', {'send_to': 'AW-987120152/DWtPCJSSicgDEJiE2dYD'});
             `
             }}
           />
@@ -42,11 +77,6 @@ export default class MyDocument extends Document {
           />
         </Head>
         <body>
-          <noscript>
-            <iframe src="https://www.googletagmanager.com/ns.html?id=AW-987120152"
-              height="0" width="0">
-            </iframe>
-          </noscript>
           <Main />
           <NextScript />
         </body>
