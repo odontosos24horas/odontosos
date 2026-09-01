@@ -16,7 +16,8 @@
     "precommit": "pnpm typecheck",
     "commit": "cz",
     "prepare": "husky install",
-    "postinstall": "husky install"
+    "postinstall": "husky install",
+    "prepush": "pnpm typecheck && pnpm build"
   },
   "dependencies": {
     "next": "16.3.4",
