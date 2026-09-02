@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+@theme {
+  /* Paleta original da marca, mantida do tema Chakra anterior.
+     Todas as combinações usadas passam em WCAG AA (verificado):
+     #007100 sobre branco = 6,25:1 · #18352B sobre branco = 13,27:1 */
+  --color-sos-primary: #007100;
+  --color-sos-primary-dark: #005600;
+  --color-sos-dark: #18352b;
+  --color-sos-gray: #5c5959;
+  --color-sos-light: #e5e5e5;
+  --color-sos-whats: #25d366;
+  /* Texto escuro sobre o verde do WhatsApp: branco daria 1,98:1 e reprova em
+     WCAG AA. Escurecer o verde resolveria o contraste, mas perderia o
+     reconhecimento imediato da marca — que é justamente o que faz a pessoa
+     clicar. Texto escuro dá 8,64:1 e preserva as duas coisas. */
+  --color-sos-whats-ink: #0b1f1a;
+
+  --font-sans: 'Roboto', ui-sans-serif, system-ui, -apple-system, 'Segoe UI',
+    sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Compensa o header fixo quando um link de âncora salta para a seção. */
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background-color: #ffffff;
+  color: var(--color-sos-dark);
+}
+
+/* A barra fixa de contato cobre o rodapé no mobile; o padding evita que ela
+   esconda conteúdo — o cliente pediu explicitamente que não cobrisse a página. */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 4.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Foco visível e consistente para navegação por teclado. */
+:focus-visible {
+  outline: 3px solid var(--color-sos-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
