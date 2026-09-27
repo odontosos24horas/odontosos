@@ -173,7 +173,7 @@ export const FAQ = [
   {
     pergunta: 'Precisa agendar o atendimento?',
     resposta:
-      'Não é necessário agendar. O atendimento é de urgência e por ordem de chegada, considerando a gravidade de cada caso. Se puder, ligue antes para avisar que está a caminho.'
+      'Não é necessário agendar. O atendimento ocorre normalmente por ordem de chegada. Situações como hemorragia ou avulsão dentária podem exigir atendimento prioritário, conforme avaliação da equipe. Se puder, ligue antes para avisar que está a caminho.'
   },
   {
     pergunta: 'Quais situações são consideradas urgências odontológicas?',
@@ -188,7 +188,7 @@ export const FAQ = [
   {
     pergunta: 'Crianças podem ser atendidas?',
     resposta:
-      'Sim. Crianças são atendidas em situações de urgência odontológica, acompanhadas por um responsável.'
+      'A possibilidade de atendimento infantil depende da idade, do quadro apresentado, da colaboração da criança e da avaliação do dentista de plantão. A clínica não dispõe de odontopediatra.'
   },
   {
     pergunta: 'Todo problema pode ser resolvido na primeira consulta?',

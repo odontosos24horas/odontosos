@@ -69,12 +69,25 @@ Isso já foi removido do código. No painel:
 4. Se alguma campanha usa Lances Inteligentes, o algoritmo vai precisar de novo período
    de aprendizado com os dados corretos.
 
-**Depois: importar as conversões novas.**
+**Conversões dos botões: já enviadas pelo código.**
 
-1. Ferramentas → Conversões → Nova → Importar → Google Analytics 4.
-2. Importar `click_ligar` e `click_whatsapp` como **conversões principais**.
-3. Importar `click_como_chegar` como **secundária** (observação, fora do lance).
-4. **Não importar `click_curriculo`.**
+O listener em `app/layout.tsx` (`CONVERSOES_ADS`) envia uma conversão por clique:
+
+| Evento (`data-evento`) | Conversão (`send_to`) |
+|---|---|
+| `click_whatsapp` | `AW-987120152/qLJfCKrs7-0cEJiE2dYD` |
+| `click_ligar` | `AW-987120152/-HKPCK3s7-0cEJiE2dYD` |
+| `click_como_chegar` | `AW-987120152/QINlCLDs7-0cEJiE2dYD` |
+
+`click_curriculo` não envia conversão.
+
+**Para não contar o mesmo clique duas vezes:**
+
+1. **Não** criar tags de conversão do Google Ads no GTM para esses eventos.
+2. **Não** importar `click_ligar`, `click_whatsapp` nem `click_como_chegar` do GA4 como
+   conversões do Ads. No GA4 eles podem continuar como eventos principais para relatório.
+3. Testar no [Tag Assistant](https://tagassistant.google.com/): cada clique deve mostrar
+   **um** evento `conversion` com o `send_to` correspondente.
 
 ---
 
@@ -97,6 +110,7 @@ Isso já foi removido do código. No painel:
 | Dados estruturados | [Teste de resultados avançados](https://search.google.com/test/rich-results) | `Dentist` e `Perguntas frequentes`, sem erro |
 | Velocidade | [PageSpeed Insights](https://pagespeed.web.dev/) | Mobile 90+ |
 | Eventos | GTM → Visualizar | 4 eventos, um disparo por clique |
+| Conversões Ads | Tag Assistant | 1 `conversion` por clique em WhatsApp, ligar e rota |
 | Robots | `/robots.txt` | 200, com a linha do Sitemap |
 
 Validado localmente antes do deploy: schema.org sem erros, Lighthouse mobile
