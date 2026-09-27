@@ -9,7 +9,8 @@ import {
   INSTAGRAM,
   PERFIL_GOOGLE,
   SITE_URL,
-  TELEFONE_E164
+  TELEFONE_E164,
+  GTM_ID
 } from '@/content/clinica'
 
 const TITULO = 'Dentista 24 horas em Belo Horizonte | Odonto SOS'
@@ -113,9 +114,40 @@ const jsonLdFaq = {
   }))
 }
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
 const ADS_ID = 'AW-987120152'
 const HOTJAR_ID = '3031525'
+
+/** Conversões do Google Ads, uma por evento de clique (data-evento).
+    Enviadas só por este código: não duplicar no GTM nem importar do GA4. */
+const CONVERSOES_ADS: Record<string, string> = {
+  click_whatsapp: `${ADS_ID}/qLJfCKrs7-0cEJiE2dYD`,
+  click_ligar: `${ADS_ID}/-HKPCK3s7-0cEJiE2dYD`,
+  click_como_chegar: `${ADS_ID}/QINlCLDs7-0cEJiE2dYD`
+}
+
+/* Listener delegado único. Para cada clique em [data-evento]:
+   1. empurra o evento para o dataLayer (GTM/GA4, se houver);
+   2. se o evento tiver conversão mapeada, envia UMA conversão ao Ads.
+   Links em nova aba (WhatsApp, rota) seguem direto; links na mesma aba
+   (tel:) esperam o event_callback, com timeout de segurança. */
+const SCRIPT_EVENTOS = `(function(){
+var C=${JSON.stringify(CONVERSOES_ADS)};
+document.addEventListener('click',function(e){
+var t=e.target;if(!t||!t.closest)return;
+var el=t.closest('[data-evento]');if(!el)return;
+var ev=el.getAttribute('data-evento');
+window.dataLayer=window.dataLayer||[];
+window.dataLayer.push({event:ev,origem:el.getAttribute('data-origem')||'nao_informado'});
+var id=C[ev];if(!id||typeof window.gtag!=='function')return;
+var href=el.getAttribute('href');
+var mesmaAba=href&&el.getAttribute('target')!=='_blank'&&!e.defaultPrevented&&e.button===0&&!e.ctrlKey&&!e.metaKey&&!e.shiftKey&&!e.altKey;
+if(!mesmaAba){window.gtag('event','conversion',{send_to:id});return;}
+e.preventDefault();
+var foi=false;var ir=function(){if(foi)return;foi=true;window.location.href=href;};
+window.gtag('event','conversion',{send_to:id,event_callback:ir,event_timeout:1000});
+setTimeout(ir,1200);
+});
+})();`
 
 export default function RootLayout({
   children
@@ -162,10 +194,11 @@ export default function RootLayout({
         {/* Medição dos contatos.
             Um listener delegado em vanilla JS, em vez de onClick por botão:
             nenhum CTA vira client component, nada hidrata, e o custo é ~400 B.
-            Lê data-evento nos links e empurra para o dataLayer.
+            Lê data-evento nos links, empurra para o dataLayer e envia a
+            conversão correspondente do Ads (ver CONVERSOES_ADS).
             ATENÇÃO: click_curriculo NÃO deve ser conversão de paciente no Ads. */}
         <Script id="eventos-contato" strategy="afterInteractive">
-          {`document.addEventListener('click',function(e){var t=e.target;if(!t||!t.closest)return;var el=t.closest('[data-evento]');if(!el)return;window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:el.getAttribute('data-evento'),origem:el.getAttribute('data-origem')||'nao_informado'});});`}
+          {SCRIPT_EVENTOS}
         </Script>
 
         <Script id="hotjar" strategy="afterInteractive">
