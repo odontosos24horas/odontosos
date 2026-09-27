@@ -13,13 +13,13 @@ Não existe container GTM hoje. O site só tem o gtag do Google Ads (`AW-9871201
 
 1. Em [tagmanager.google.com](https://tagmanager.google.com), criar container do tipo **Web** para `odontosos.com.br`.
 2. Copiar o ID (`GTM-XXXXXXX`).
-3. Na Vercel → Settings → Environment Variables, adicionar:
+3. Colar o ID em `content/clinica.ts`:
 
-```bash
-NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
+```ts
+export const GTM_ID: string = 'GTM-XXXXXXX'
 ```
 
-4. Fazer redeploy. O container e o `<noscript>` só são injetados quando essa variável existe — sem ela, nada quebra.
+4. Fazer o deploy. O container e o `<noscript>` só são injetados quando essa constante não está vazia.
 
 **Criar os acionadores** (Triggers → Novo → Evento personalizado)
 

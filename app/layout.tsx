@@ -9,7 +9,8 @@ import {
   INSTAGRAM,
   PERFIL_GOOGLE,
   SITE_URL,
-  TELEFONE_E164
+  TELEFONE_E164,
+  GTM_ID
 } from '@/content/clinica'
 
 const TITULO = 'Dentista 24 horas em Belo Horizonte | Odonto SOS'
@@ -113,7 +114,6 @@ const jsonLdFaq = {
   }))
 }
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID
 const ADS_ID = 'AW-987120152'
 const HOTJAR_ID = '3031525'
 
